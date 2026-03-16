@@ -685,23 +685,33 @@
       background: linear-gradient(135deg, rgba(0, 229, 255, .03) 0%, rgba(155, 48, 255, .05) 50%, rgba(255, 0, 200, .03) 100%);
     }
     [data-theme="light"] #delivery::before { opacity: .6; }
-    .del-inner { text-align: center; position: relative; z-index: 1; }
-    .del-inner h2 { font-size: clamp(2rem, 4.8vw, 3.4rem); margin-bottom: 14px; }
-    .del-inner > p { font-size: 1.05rem; color: var(--muted); max-width: 560px; margin: 0 auto 56px; }
-    .del-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 860px; margin: 0 auto; }
+    .del-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
+    .del-content h2 { font-size: clamp(1.8rem, 3.8vw, 3rem); margin-bottom: 14px; }
+    .del-content > p { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 40px; }
+    .del-cards { display: grid; grid-template-columns: 1fr; gap: 16px; }
     .del-card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 20px;
-      padding: 36px 22px; text-align: center;
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 20px 22px; display: flex; align-items: flex-start; gap: 16px;
       box-shadow: var(--card-shadow);
       transition: transform .3s, border-color .3s, box-shadow .3s;
     }
     .del-card:hover {
-      transform: translateY(-5px); border-color: rgba(0, 229, 255, .38);
+      transform: translateY(-4px); border-color: rgba(0, 229, 255, .38);
       box-shadow: var(--del-hover);
     }
-    .del-icon { font-size: 2.8rem; margin-bottom: 14px; display: block; }
-    .del-card h3 { font-size: .96rem; font-weight: 600; margin-bottom: 8px; }
-    .del-card p { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+    .del-icon { font-size: 2rem; flex-shrink: 0; }
+    .del-card h3 { font-size: .94rem; font-weight: 600; margin-bottom: 4px; }
+    .del-card p { font-size: .82rem; color: var(--muted); line-height: 1.6; margin: 0; }
+    /* photo collage */
+    .del-photos { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; gap: 12px; }
+    .del-photo { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+    .del-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+    .del-photo:hover img { transform: scale(1.05); }
+    .del-photo.tall { grid-row: span 2; }
+    @media (max-width: 860px) {
+      .del-grid { grid-template-columns: 1fr; }
+      .del-photos { grid-template-columns: 1fr 1fr; grid-template-rows: 160px 160px; }
+    }
 
     /* ============================================================
        FOOTER
@@ -1402,26 +1412,48 @@
 ============================================================ -->
 <section id="delivery">
   <div class="container">
-    <div class="del-inner">
-      <h2 class="reveal"><span class="g-text">We Deliver</span> Nationwide</h2>
-      <p class="reveal">No matter where you are in South Africa — we'll get your canvas to you. We are based in the Eastrand of Johannesburg, Thokoza. Delivery fee applies depending on your location.</p>
-      <div class="del-cards">
-        <div class="del-card reveal d1">
-          <span class="del-icon">⚡</span>
-          <h3>Fast Turnaround</h3>
-          <p>Once your payment is processed we start working on your piece. Turnaround time is 2–5 working days.</p>
-        </div>
-        <div class="del-card reveal d2">
-          <span class="del-icon">📦</span>
-          <h3>Secure Packaging</h3>
-          <p>Every canvas is carefully wrapped and protected to arrive at your door in perfect condition.</p>
-        </div>
-        <div class="del-card reveal d3">
-          <span class="del-icon">🇿🇦</span>
-          <h3>Nationwide Delivery</h3>
-          <p>We ship to all major cities and towns right across South Africa — from Cape Town to Limpopo.</p>
+    <div class="del-grid">
+
+      <div class="del-content reveal-l">
+        <h2><span class="g-text">We Deliver</span> Nationwide</h2>
+        <p>No matter where you are in South Africa — we'll get your canvas safely to your door. We are based in the Eastrand of Johannesburg, Thokoza. Delivery fee applies depending on your location.</p>
+        <div class="del-cards">
+          <div class="del-card">
+            <span class="del-icon">⚡</span>
+            <div>
+              <h3>Fast Turnaround</h3>
+              <p>Once your payment is processed we start working on your piece. Turnaround time is 2–5 working days.</p>
+            </div>
+          </div>
+          <div class="del-card">
+            <span class="del-icon">📦</span>
+            <div>
+              <h3>Secure Packaging</h3>
+              <p>Every canvas is bubble-wrapped and marked fragile — packed to survive the journey in perfect condition.</p>
+            </div>
+          </div>
+          <div class="del-card">
+            <span class="del-icon">🇿🇦</span>
+            <div>
+              <h3>Nationwide via Courier Guy</h3>
+              <p>We ship to all major cities and towns across South Africa — from Cape Town to Limpopo.</p>
+            </div>
+          </div>
         </div>
       </div>
+
+      <div class="del-photos reveal-r">
+        <div class="del-photo tall">
+          <img src="images/courier%20guy%20delivery.jpeg" alt="Courier Guy delivery">
+        </div>
+        <div class="del-photo">
+          <img src="images/package.jpeg" alt="Canvas packaged for delivery">
+        </div>
+        <div class="del-photo">
+          <img src="images/packaging-delivery.jpeg" alt="Bubble wrap packaging">
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
