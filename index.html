@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T.M Global Solutions | Premium Canvas Printing South Africa</title>
+
+  <!-- Prevent flash of wrong theme -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('tm-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; line-height: 1.65; overflow-x: hidden; transition: background .35s, color .35s; }
+
+    /* ============================================================
+       THEME VARIABLES — DARK (default)
+    ============================================================ */
+    :root {
+      --cyan:    #00E5FF;
+      --purple:  #9B30FF;
+      --magenta: #FF00C8;
+      --grad:    linear-gradient(135deg, #00E5FF, #9B30FF, #FF00C8);
+      --grad-r:  linear-gradient(135deg, #FF00C8, #9B30FF, #00E5FF);
+
+      /* backgrounds */
+      --bg:   #060608;
+      --bg2:  #0c0c10;
+      --card: #0e0e15;
+
+      /* text */
+      --text:  #e6e6f0;
+      --muted: #7a7a99;
+
+      /* borders */
+      --border: rgba(155, 48, 255, .18);
+
+      /* nav */
+      --nav-bg:     rgba(6, 6, 8, .88);
+      --nav-border: rgba(155, 48, 255, .12);
+      --nav-shadow: 0 6px 40px rgba(0, 0, 0, .6);
+
+      /* mobile menu */
+      --mob-bg: rgba(6, 6, 8, .97);
+
+      /* hero image tag */
+      --hero-tag: rgba(6, 6, 8, .82);
+
+      /* table */
+      --tbl-head:  rgba(155, 48, 255, .09);
+      --tbl-sep:   rgba(255, 255, 255, .04);
+      --tbl-hover: rgba(0, 229, 255, .03);
+
+      /* card interaction */
+      --card-shadow: none;
+      --card-hover-border: rgba(0, 229, 255, .45);
+      --card-hover-shadow: 0 0 28px rgba(0, 229, 255, .14), 0 0 56px rgba(155, 48, 255, .1), 0 22px 44px rgba(0, 0, 0, .4);
+
+      /* delivery card hover */
+      --del-hover: 0 0 26px rgba(0, 229, 255, .12);
+
+      /* misc */
+      --save-color:    #00e676;
+      --check-color:   var(--cyan);
+      --foot-sep:      rgba(255, 255, 255, .05);
+      --proc-blob:     rgba(155, 48, 255, .06);
+    }
+
+    /* ============================================================
+       THEME VARIABLES — LIGHT
+    ============================================================ */
+    [data-theme="light"] {
+      --bg:   #ffffff;
+      --bg2:  #f3f4fb;
+      --card: #ffffff;
+      --text:  #111120;
+      --muted: #62627a;
+      --border: rgba(130, 70, 200, .14);
+
+      --nav-bg:     rgba(255, 255, 255, .94);
+      --nav-border: rgba(155, 48, 255, .1);
+      --nav-shadow: 0 4px 24px rgba(0, 0, 0, .1);
+
+      --mob-bg: rgba(255, 255, 255, .98);
+
+      --hero-tag: rgba(255, 255, 255, .92);
+
+      --tbl-head:  rgba(155, 48, 255, .06);
+      --tbl-sep:   rgba(0, 0, 0, .05);
+      --tbl-hover: rgba(155, 48, 255, .03);
+
+      --card-shadow: 0 2px 14px rgba(0, 0, 0, .07);
+      --card-hover-border: rgba(155, 48, 255, .38);
+      --card-hover-shadow: 0 10px 40px rgba(0, 0, 0, .12), 0 2px 12px rgba(155, 48, 255, .1);
+
+      --del-hover: 0 8px 28px rgba(0, 0, 0, .1);
+
+      --save-color:    #009644;
+      --check-color:   var(--purple);
+      --foot-sep:      rgba(0, 0, 0, .07);
+      --proc-blob:     rgba(155, 48, 255, .04);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--grad); border-radius: 4px; }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; letter-spacing: .04em; line-height: 1.15; }
+
+    .g-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 34px; border-radius: 50px;
+      font-family: 'Orbitron', sans-serif; font-size: .78rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+      cursor: pointer; border: none; white-space: nowrap;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .btn-grad {
+      background: var(--grad); color: #fff;
+      box-shadow: 0 0 22px rgba(0, 229, 255, .25), 0 0 44px rgba(155, 48, 255, .15);
+    }
+    .btn-grad:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 0 36px rgba(0, 229, 255, .45), 0 0 70px rgba(155, 48, 255, .3);
+    }
+    .btn-outline {
+      background: transparent; color: var(--purple);
+      border: 1.5px solid rgba(155, 48, 255, .45);
+    }
+    .btn-outline:hover {
+      border-color: var(--purple); background: rgba(155, 48, 255, .07);
+      transform: translateY(-3px); box-shadow: 0 0 20px rgba(155, 48, 255, .2);
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .container { max-width: 1260px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; }
+    .sec-head { text-align: center; margin-bottom: 56px; }
+    .sec-head h2 { font-size: clamp(1.7rem, 3.8vw, 2.9rem); margin-bottom: 14px; }
+    .sec-head p { color: var(--muted); font-size: 1.05rem; max-width: 540px; margin: 0 auto; }
+    .sec-line { width: 72px; height: 3px; background: var(--grad); border-radius: 2px; margin: 12px auto 16px; }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal   { opacity: 0; transform: translateY(36px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-l { opacity: 0; transform: translateX(-36px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-r { opacity: 0; transform: translateX(36px);  transition: opacity .7s ease, transform .7s ease; }
+    .reveal.vis, .reveal-l.vis, .reveal-r.vis { opacity: 1; transform: translate(0); }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
+
+    /* ============================================================
+       GLOWING CARD BASE
+    ============================================================ */
+    .gcard {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+    }
+    .gcard:hover {
+      transform: translateY(-8px);
+      border-color: var(--card-hover-border);
+      box-shadow: var(--card-hover-shadow);
+    }
+
+    /* ============================================================
+       LOGO SWAP (dark / light)
+    ============================================================ */
+    .logo-dark  { display: block; }
+    .logo-light { display: none;  }
+    [data-theme="light"] .logo-dark  { display: none;  }
+    [data-theme="light"] .logo-light { display: block; }
+
+    /* ============================================================
+       THEME TOGGLE PILL
+    ============================================================ */
+    .theme-toggle {
+      width: 62px; height: 32px; border-radius: 16px;
+      background: var(--card); border: 1.5px solid var(--border);
+      cursor: pointer; padding: 3px 4px;
+      position: relative; display: inline-flex; align-items: center;
+      flex-shrink: 0; transition: border-color .3s, background .3s;
+      outline: none;
+    }
+    .theme-toggle:hover { border-color: var(--cyan); }
+
+    .tt-thumb {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--grad); flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(155, 48, 255, .45);
+      transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
+      position: relative; z-index: 2;
+    }
+    [data-theme="light"] .tt-thumb { transform: translateX(28px); }
+
+    /* icon visible in dark: sun (to switch to light) | in light: moon (to switch to dark) */
+    .tt-icon { position: absolute; font-size: .8rem; z-index: 1; transition: opacity .3s; }
+    .tt-sun  { right: 6px; opacity: .65; }
+    .tt-moon { left:  6px; opacity: 0;   }
+    [data-theme="light"] .tt-sun  { opacity: 0; }
+    [data-theme="light"] .tt-moon { opacity: .65; }
+
+    /* ============================================================
+       1. NAVIGATION
+    ============================================================ */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      padding: 14px 0; transition: all .3s ease;
+    }
+    #nav.scrolled {
+      background: var(--nav-bg);
+      backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+      border-bottom: 1px solid var(--nav-border);
+      padding: 9px 0; box-shadow: var(--nav-shadow);
+    }
+    .nav-wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1260px; margin: 0 auto; padding: 0 24px;
+      gap: 12px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo .logo-img {
+      height: 48px; width: auto; border-radius: 8px;
+      filter: drop-shadow(0 0 7px rgba(155, 48, 255, .35));
+    }
+    [data-theme="light"] .nav-logo .logo-light {
+      filter: drop-shadow(0 2px 8px rgba(155, 48, 255, .2));
+    }
+    .nav-logo-txt { font-family: 'Orbitron', sans-serif; line-height: 1.25; }
+    .nav-logo-txt .t1 {
+      display: block; font-size: .9rem; font-weight: 700;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-logo-txt .t2 { display: block; font-size: .58rem; font-weight: 400; color: var(--muted); letter-spacing: .22em; text-transform: uppercase; }
+
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; margin-left: auto; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: .82rem; font-weight: 500;
+      padding: 8px 13px; border-radius: 8px; letter-spacing: .04em;
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--cyan); background: rgba(0, 229, 255, .06); }
+
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+
+    /* hamburger */
+    .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .ham span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s; }
+
+    /* ============================================================
+       MOBILE OVERLAY
+    ============================================================ */
+    #mob-nav {
+      display: none; position: fixed; inset: 0; z-index: 898;
+      background: var(--mob-bg);
+      flex-direction: column; align-items: center; justify-content: center; gap: 26px;
+    }
+    #mob-nav.open { display: flex; }
+    #mob-nav a {
+      color: var(--text); text-decoration: none;
+      font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 700;
+      letter-spacing: .08em; transition: color .2s;
+    }
+    #mob-nav a:hover { color: var(--cyan); }
+    .mob-close {
+      position: absolute; top: 20px; right: 24px;
+      background: none; border: none; color: var(--text); font-size: 2rem; cursor: pointer;
+    }
+    .mob-theme-row {
+      display: flex; align-items: center; gap: 14px;
+      font-family: 'Orbitron', sans-serif; font-size: .82rem;
+      color: var(--muted); letter-spacing: .1em;
+    }
+
+    /* ============================================================
+       2. HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 130px 0 80px; position: relative; overflow: hidden;
+    }
+    .blob {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      animation: blobF 10s ease-in-out infinite;
+    }
+    .blob1 {
+      width: 680px; height: 680px;
+      background: radial-gradient(circle, rgba(155, 48, 255, .13) 0%, transparent 70%);
+      top: -200px; left: -220px;
+    }
+    .blob2 {
+      width: 540px; height: 540px;
+      background: radial-gradient(circle, rgba(0, 229, 255, .09) 0%, transparent 70%);
+      bottom: -160px; right: -140px;
+      animation-duration: 13s; animation-direction: reverse;
+    }
+    [data-theme="light"] .blob1 { background: radial-gradient(circle, rgba(155, 48, 255, .16) 0%, transparent 70%); }
+    [data-theme="light"] .blob2 { background: radial-gradient(circle, rgba(0, 229, 255, .13) 0%, transparent 70%); }
+    @keyframes blobF {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-26px) scale(1.04); }
+    }
+
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: center; position: relative; z-index: 1;
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(155, 48, 255, .1); border: 1px solid rgba(155, 48, 255, .28);
+      border-radius: 50px; padding: 5px 18px;
+      font-size: .75rem; color: var(--cyan); letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: 26px;
+    }
+    [data-theme="light"] .hero-pill {
+      background: rgba(155, 48, 255, .07); border-color: rgba(155, 48, 255, .2);
+    }
+    .pill-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--cyan);
+      animation: pDot 2s ease infinite;
+    }
+    @keyframes pDot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0, 229, 255, .7); }
+      50%       { box-shadow: 0 0 0 7px rgba(0, 229, 255, 0); }
+    }
+    .hero-h1 { font-size: clamp(2.6rem, 5.5vw, 5.2rem); font-weight: 900; margin-bottom: 22px; }
+    .hero-sub { font-size: clamp(1rem, 1.8vw, 1.25rem); color: var(--muted); font-weight: 300; margin-bottom: 40px; max-width: 460px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .hero-stats { display: flex; gap: 44px; margin-top: 52px; }
+    .hs-num {
+      font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 700;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hs-lbl { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
+
+    .hero-img-col {}
+    .hero-img-border { position: relative; border-radius: 24px; background: var(--grad); padding: 2px; }
+    .hero-img-border img { width: 100%; height: 580px; object-fit: cover; border-radius: 22px; display: block; }
+    .hero-img-tag {
+      position: absolute; bottom: 22px; left: 22px;
+      background: var(--hero-tag); backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 229, 255, .25); border-radius: 14px;
+      padding: 10px 18px;
+      font-family: 'Orbitron', sans-serif; font-size: .7rem; color: var(--cyan); letter-spacing: .1em;
+    }
+
+    /* ============================================================
+       3. MOST POPULAR
+    ============================================================ */
+    #popular { background: var(--bg2); }
+    .pop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(272px, 1fr)); gap: 26px; }
+
+    .pc-img-wrap { overflow: hidden; position: relative; }
+    .pc-img-wrap::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 50px;
+      background: linear-gradient(transparent, var(--card));
+    }
+    .pc-img { width: 100%; height: 255px; object-fit: cover; transition: transform .5s ease; display: block; }
+    .gcard:hover .pc-img { transform: scale(1.06); }
+    .pc-body { padding: 20px; }
+    .pc-tag { font-size: .68rem; color: var(--cyan); text-transform: uppercase; letter-spacing: .15em; margin-bottom: 5px; }
+    .pc-name { font-family: 'Orbitron', sans-serif; font-size: .9rem; font-weight: 600; margin-bottom: 8px; }
+    .pc-desc { font-size: .83rem; color: var(--muted); line-height: 1.5; }
+    .pc-price-row { display: flex; align-items: baseline; justify-content: space-between; margin: 14px 0 12px; }
+    .pc-from { font-size: .72rem; color: var(--muted); }
+    .pc-price {
+      font-family: 'Orbitron', sans-serif; font-size: 1.3rem; font-weight: 700;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .pc-btn {
+      display: block; width: 100%; padding: 11px; text-align: center;
+      background: rgba(155, 48, 255, .1); border: 1px solid rgba(155, 48, 255, .28);
+      border-radius: 10px; color: var(--text); font-size: .83rem; font-weight: 500;
+      cursor: pointer; transition: all .3s; text-decoration: none;
+    }
+    .pc-btn:hover { background: var(--grad); border-color: transparent; color: #fff; }
+
+    /* ============================================================
+       4. COMBOS
+    ============================================================ */
+    #combos { background: var(--bg); }
+    .combo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-bottom: 48px; }
+    .combo-card { position: relative; }
+    .combo-card.featured { border-color: rgba(0, 229, 255, .35); box-shadow: 0 0 28px rgba(0, 229, 255, .09); }
+    [data-theme="light"] .combo-card.featured {
+      border-color: rgba(0, 160, 200, .3);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .09), 0 0 20px rgba(0, 200, 255, .08);
+    }
+    .combo-badge {
+      position: absolute; top: 14px; right: 14px; z-index: 2;
+      background: var(--grad); color: #fff;
+      font-family: 'Orbitron', sans-serif; font-size: .64rem; font-weight: 700;
+      padding: 4px 13px; border-radius: 20px; letter-spacing: .1em;
+    }
+    .combo-img-wrap { overflow: hidden; position: relative; }
+    .combo-img-wrap::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 50px;
+      background: linear-gradient(transparent, var(--card));
+    }
+    .combo-img { width: 100%; height: 230px; object-fit: cover; transition: transform .5s; display: block; }
+    .gcard:hover .combo-img { transform: scale(1.06); }
+    .combo-body { padding: 22px; }
+    .combo-num { font-size: .68rem; color: var(--purple); text-transform: uppercase; letter-spacing: .2em; margin-bottom: 5px; }
+    .combo-name { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .combo-desc { font-size: .83rem; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
+    .combo-list { list-style: none; margin-bottom: 18px; }
+    .combo-list li { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: var(--muted); padding: 3px 0; }
+    .combo-list li::before { content: '✓'; color: var(--check-color); font-weight: 700; }
+    .combo-pr-row { display: flex; align-items: baseline; gap: 8px; }
+    .combo-pr {
+      font-family: 'Orbitron', sans-serif; font-size: 1.45rem; font-weight: 700;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .combo-save { font-size: .78rem; font-weight: 600; color: var(--save-color); }
+    .combos-cta { text-align: center; }
+
+    /* ============================================================
+       5. INDIVIDUAL CANVASES
+    ============================================================ */
+    #ind-sizes { background: var(--bg2); overflow: hidden; }
+    .hscroll {
+      display: flex; gap: 18px; overflow-x: auto; padding: 8px 0 20px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin; scrollbar-color: rgba(155, 48, 255, .3) transparent;
+    }
+    .hscroll::-webkit-scrollbar { height: 4px; }
+    .hscroll::-webkit-scrollbar-thumb { background: var(--grad); border-radius: 2px; }
+    .sz-card { flex: 0 0 190px; scroll-snap-align: start; cursor: pointer; }
+    .sz-img-wrap { overflow: hidden; }
+    .sz-card img { width: 100%; height: 172px; object-fit: cover; transition: transform .4s; display: block; }
+    .sz-card:hover img { transform: scale(1.07); }
+    .sz-info { padding: 13px 14px; text-align: center; }
+    .sz-label {
+      font-family: 'Orbitron', sans-serif; font-size: 1.05rem; font-weight: 700;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .sz-dims { font-size: .74rem; color: var(--muted); margin-top: 2px; }
+    .sz-price { font-size: .88rem; font-weight: 600; color: var(--text); margin-top: 4px; }
+
+    /* ============================================================
+       6. PROCESS
+    ============================================================ */
+    #process { background: var(--bg); position: relative; }
+    #process::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 60%, var(--proc-blob) 0%, transparent 65%);
+    }
+    .proc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; position: relative; }
+    .proc-grid::before {
+      content: ''; position: absolute;
+      top: 52px; left: calc(33.33% - 10px); right: calc(33.33% - 10px);
+      height: 2px; background: var(--grad); opacity: .22;
+    }
+    .proc-step { text-align: center; }
+    .proc-icon-wrap {
+      width: 104px; height: 104px; border-radius: 50%;
+      background: var(--card); border: 2px solid rgba(155, 48, 255, .25);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 22px; font-size: 2.4rem;
+      position: relative; transition: all .4s ease;
+      box-shadow: var(--card-shadow);
+    }
+    .proc-step:hover .proc-icon-wrap {
+      border-color: var(--cyan);
+      box-shadow: 0 0 28px rgba(0, 229, 255, .3), 0 0 56px rgba(155, 48, 255, .2);
+      transform: scale(1.08);
+    }
+    [data-theme="light"] .proc-step:hover .proc-icon-wrap {
+      box-shadow: 0 0 22px rgba(0, 200, 255, .25), 0 6px 20px rgba(0, 0, 0, .1);
+    }
+    .proc-num {
+      position: absolute; top: -8px; right: -8px;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--grad); color: #fff;
+      font-family: 'Orbitron', sans-serif; font-size: .78rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .proc-step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+    .proc-step p { font-size: .86rem; color: var(--muted); line-height: 1.65; }
+
+    /* ============================================================
+       7. GALLERY
+    ============================================================ */
+    #gallery { background: var(--bg2); }
+    .gallery-masonry { columns: 3; column-gap: 14px; }
+    .gal-item {
+      break-inside: avoid; margin-bottom: 14px;
+      border-radius: 16px; overflow: hidden;
+      cursor: pointer; position: relative;
+    }
+    .gal-item img { width: 100%; display: block; transition: transform .5s ease; }
+    .gal-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: var(--grad); opacity: 0; transition: opacity .3s; border-radius: 16px;
+    }
+    .gal-item:hover img { transform: scale(1.05); }
+    .gal-item:hover::after { opacity: .12; }
+
+    /* ============================================================
+       8. SIZES TABLE
+    ============================================================ */
+    #sizes-table { background: var(--bg); }
+    .tbl-wrap {
+      border-radius: 20px; border: 1px solid var(--border); overflow: hidden; overflow-x: auto;
+      box-shadow: var(--card-shadow);
+    }
+    [data-theme="light"] .tbl-wrap { box-shadow: 0 4px 28px rgba(0, 0, 0, .08); }
+    table { width: 100%; border-collapse: collapse; min-width: 500px; }
+    thead { background: var(--tbl-head); }
+    th {
+      padding: 17px 22px; text-align: left;
+      font-family: 'Orbitron', sans-serif; font-size: .8rem; font-weight: 600;
+      color: var(--cyan); text-transform: uppercase; letter-spacing: .1em;
+      border-bottom: 1px solid rgba(155, 48, 255, .2);
+    }
+    td { padding: 15px 22px; font-size: .92rem; border-bottom: 1px solid var(--tbl-sep); }
+    tr:last-child td { border-bottom: none; }
+    tbody tr { transition: background .2s; }
+    tbody tr:hover { background: var(--tbl-hover); }
+    .sz-badge {
+      font-family: 'Orbitron', sans-serif; font-size: .95rem; font-weight: 700;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .tbl-price {
+      font-family: 'Orbitron', sans-serif; font-size: .95rem; font-weight: 700;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* ============================================================
+       9. GIFT VOUCHERS
+    ============================================================ */
+    #vouchers { background: var(--bg2); }
+    .voucher-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+
+    .v-card {
+      background: var(--card); border-radius: 24px; padding: 44px 38px;
+      border: 1px solid rgba(0, 229, 255, .18); position: relative; overflow: hidden;
+      box-shadow: 0 0 44px rgba(0, 229, 255, .09), 0 0 88px rgba(155, 48, 255, .07);
+    }
+    [data-theme="light"] .v-card {
+      box-shadow: 0 8px 44px rgba(0, 0, 0, .1), 0 0 36px rgba(155, 48, 255, .07);
+      border-color: rgba(155, 48, 255, .16);
+    }
+    .v-card::before {
+      content: ''; position: absolute; top: -90px; right: -90px; width: 260px; height: 260px;
+      border-radius: 50%; background: radial-gradient(circle, rgba(0, 229, 255, .14) 0%, transparent 70%);
+    }
+    .v-card::after {
+      content: ''; position: absolute; bottom: -70px; left: -70px; width: 220px; height: 220px;
+      border-radius: 50%; background: radial-gradient(circle, rgba(155, 48, 255, .14) 0%, transparent 70%);
+    }
+    [data-theme="light"] .v-card::before { background: radial-gradient(circle, rgba(0, 229, 255, .18) 0%, transparent 70%); }
+    [data-theme="light"] .v-card::after  { background: radial-gradient(circle, rgba(155, 48, 255, .18) 0%, transparent 70%); }
+
+    .v-logo { height: 48px; margin-bottom: 18px; position: relative; z-index: 1; border-radius: 6px; }
+    .v-title {
+      font-family: 'Orbitron', sans-serif; font-size: 1.7rem; font-weight: 900;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      position: relative; z-index: 1;
+    }
+    .v-sub { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .18em; margin-top: 4px; margin-bottom: 22px; position: relative; z-index: 1; }
+    .v-amount {
+      font-family: 'Orbitron', sans-serif; font-size: 3.6rem; font-weight: 900; line-height: 1;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      position: relative; z-index: 1;
+    }
+    .v-dash { border-top: 2px dashed rgba(155, 48, 255, .3); margin: 20px 0; position: relative; z-index: 1; }
+    .v-valid { font-size: .76rem; color: var(--muted); letter-spacing: .1em; position: relative; z-index: 1; }
+
+    .v-content h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 14px; }
+    .v-content p { font-size: .95rem; color: var(--muted); line-height: 1.7; margin-bottom: 30px; }
+    .v-features { list-style: none; margin-bottom: 34px; }
+    .v-features li { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: .88rem; color: var(--muted); }
+    .v-features li .vi { font-size: 1.1rem; }
+
+    /* ============================================================
+       10. DELIVERY
+    ============================================================ */
+    #delivery { background: var(--bg); padding: 88px 0; position: relative; overflow: hidden; }
+    #delivery::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(135deg, rgba(0, 229, 255, .03) 0%, rgba(155, 48, 255, .05) 50%, rgba(255, 0, 200, .03) 100%);
+    }
+    [data-theme="light"] #delivery::before { opacity: .6; }
+    .del-inner { text-align: center; position: relative; z-index: 1; }
+    .del-inner h2 { font-size: clamp(2rem, 4.8vw, 3.4rem); margin-bottom: 14px; }
+    .del-inner > p { font-size: 1.05rem; color: var(--muted); max-width: 560px; margin: 0 auto 56px; }
+    .del-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 860px; margin: 0 auto; }
+    .del-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+      padding: 36px 22px; text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .del-card:hover {
+      transform: translateY(-5px); border-color: rgba(0, 229, 255, .38);
+      box-shadow: var(--del-hover);
+    }
+    .del-icon { font-size: 2.8rem; margin-bottom: 14px; display: block; }
+    .del-card h3 { font-size: .96rem; font-weight: 600; margin-bottom: 8px; }
+    .del-card p { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    #contact { background: var(--bg2); position: relative; }
+    #contact::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--grad);
+    }
+    .footer-top { padding: 78px 0 48px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 44px; }
+
+    .f-logo { height: 58px; margin-bottom: 14px; border-radius: 8px; }
+    .f-desc { font-size: .88rem; color: var(--muted); line-height: 1.7; max-width: 248px; margin-bottom: 22px; }
+    .f-socials { display: flex; gap: 10px; }
+    .soc-btn {
+      width: 38px; height: 38px; border-radius: 9px;
+      background: var(--bg); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .78rem; font-family: 'Orbitron', sans-serif; font-weight: 700;
+      color: var(--muted); text-decoration: none; transition: all .3s;
+    }
+    .soc-btn:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 14px rgba(0, 229, 255, .2); }
+
+    .f-col h4 {
+      font-family: 'Orbitron', sans-serif; font-size: .78rem; font-weight: 600;
+      color: var(--text); text-transform: uppercase; letter-spacing: .16em; margin-bottom: 18px;
+    }
+    .f-col ul { list-style: none; }
+    .f-col ul li { margin-bottom: 9px; }
+    .f-col ul li a { color: var(--muted); text-decoration: none; font-size: .88rem; transition: color .2s; }
+    .f-col ul li a:hover { color: var(--cyan); }
+    .f-contact-item { display: flex; gap: 9px; align-items: flex-start; margin-bottom: 12px; font-size: .88rem; color: var(--muted); }
+    .f-contact-item .ico { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+
+    .footer-bot { border-top: 1px solid var(--foot-sep); padding: 22px 0; }
+    .footer-bot-inner { display: flex; align-items: center; justify-content: space-between; }
+    .copyright { font-size: .82rem; color: var(--muted); }
+    .copyright strong { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* floating WA */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 800;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--grad); display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; cursor: pointer; text-decoration: none;
+      box-shadow: 0 0 24px rgba(0, 229, 255, .3), 0 6px 20px rgba(0, 0, 0, .4);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .wa-float:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 0 40px rgba(0, 229, 255, .5); }
+
+    /* ============================================================
+       LIGHTBOX
+    ============================================================ */
+    #lb {
+      display: none; position: fixed; inset: 0; z-index: 9000;
+      background: rgba(0, 0, 0, .94); backdrop-filter: blur(12px);
+      align-items: center; justify-content: center;
+    }
+    #lb.open { display: flex; }
+    #lb img {
+      max-width: 90vw; max-height: 88vh; border-radius: 16px;
+      border: 1px solid rgba(0, 229, 255, .25);
+      box-shadow: 0 0 60px rgba(0, 229, 255, .18);
+    }
+    .lb-close {
+      position: absolute; top: 20px; right: 24px;
+      background: rgba(255, 255, 255, .1); border: none; color: #fff;
+      font-size: 1.8rem; width: 46px; height: 46px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .2s;
+    }
+    .lb-close:hover { background: rgba(255, 255, 255, .2); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .combo-grid  { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 68px 0; }
+      .nav-links, .nav-right .btn-grad { display: none; }
+      .ham { display: flex; }
+
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-img-col { order: -1; }
+      .hero-img-border img { height: 300px; }
+      .hero-stats { gap: 22px; }
+      .hs-num { font-size: 1.5rem; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { text-align: center; }
+
+      .combo-grid { grid-template-columns: 1fr; max-width: 390px; margin-left: auto; margin-right: auto; }
+      .proc-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+      .proc-grid::before { display: none; }
+      .gallery-masonry { columns: 2; }
+      .voucher-grid { grid-template-columns: 1fr; gap: 36px; }
+      .del-cards { grid-template-columns: 1fr; max-width: 320px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .f-brand { grid-column: 1 / -1; }
+      .footer-bot-inner { flex-direction: column; gap: 10px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .gallery-masonry { columns: 1; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button class="lb-close" onclick="lbClose()">✕</button>
+  <img id="lb-img" src="" alt="Canvas Preview">
+</div>
+
+<!-- MOBILE NAV -->
+<div id="mob-nav">
+  <button class="mob-close" onclick="mobClose()">✕</button>
+  <a href="#hero"       onclick="mobClose()">Home</a>
+  <a href="#popular"    onclick="mobClose()">Products</a>
+  <a href="#combos"     onclick="mobClose()">Combos</a>
+  <a href="#ind-sizes"  onclick="mobClose()">Sizes</a>
+  <a href="#vouchers"   onclick="mobClose()">Gift Vouchers</a>
+  <a href="#contact"    onclick="mobClose()">Contact</a>
+  <div class="mob-theme-row">
+    <span>Theme</span>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <span class="tt-thumb"></span>
+      <span class="tt-icon tt-sun">☀️</span>
+      <span class="tt-icon tt-moon">🌙</span>
+    </button>
+  </div>
+  <a href="#contact" class="btn btn-grad" style="margin-top:8px" onclick="mobClose()">Order Now</a>
+</div>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav id="nav">
+  <div class="nav-wrap">
+
+    <a href="#hero" class="nav-logo">
+      <img class="logo-img logo-dark"
+           src="inspirations/WhatsApp%20Image%202026-03-15%20at%208.07.24%20PM.jpeg"
+           alt="T.M Global Solutions">
+      <img class="logo-img logo-light"
+           src="inspirations/logo2.png"
+           alt="T.M Global Solutions">
+      <div class="nav-logo-txt">
+        <span class="t1">T.M GLOBAL</span>
+        <span class="t2">Solutions</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#popular">Products</a></li>
+      <li><a href="#combos">Combos</a></li>
+      <li><a href="#ind-sizes">Sizes</a></li>
+      <li><a href="#vouchers">Gift Vouchers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="theme-toggle" onclick="toggleTheme()" title="Switch theme">
+        <span class="tt-thumb"></span>
+        <span class="tt-icon tt-sun">☀️</span>
+        <span class="tt-icon tt-moon">🌙</span>
+      </button>
+      <a href="#contact" class="btn btn-grad" style="font-size:.72rem;padding:11px 26px">Order Now</a>
+    </div>
+
+    <div class="ham" onclick="mobOpen()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <div class="reveal-l">
+        <div class="hero-pill">
+          <div class="pill-dot"></div>
+          South Africa's Premier Canvas Printers
+        </div>
+        <h1 class="hero-h1">
+          Premium<br>
+          <span class="g-text">Canvas</span><br>
+          Printing
+        </h1>
+        <p class="hero-sub">Turn your most treasured moments into stunning, gallery-quality canvases — handcrafted and delivered to your door.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-grad">Order Now</a>
+          <a href="#popular" class="btn btn-outline">View Products</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="hs-num">500+</div><div class="hs-lbl">Happy Clients</div></div>
+          <div><div class="hs-num">6</div><div class="hs-lbl">Canvas Sizes</div></div>
+          <div><div class="hs-num">48h</div><div class="hs-lbl">Turnaround</div></div>
+        </div>
+      </div>
+
+      <div class="hero-img-col reveal-r">
+        <div class="hero-img-border">
+          <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.37%20PM.jpeg" alt="Couple portrait canvas print">
+          <div class="hero-img-tag">✦ Premium Quality Print</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MOST POPULAR CANVASES
+============================================================ -->
+<section id="popular">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2><span class="g-text">Most Popular</span> Canvases</h2>
+      <div class="sec-line"></div>
+      <p>Our bestselling canvas prints — bold, vivid, and made to last a lifetime.</p>
+    </div>
+    <div class="pop-grid">
+
+      <div class="gcard reveal d1">
+        <div class="pc-img-wrap">
+          <img class="pc-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM.jpeg" alt="Custom Concept Canvas">
+        </div>
+        <div class="pc-body">
+          <div class="pc-tag">Best Seller</div>
+          <div class="pc-name">Custom Concept Canvas</div>
+          <p class="pc-desc">Your photo reimagined as a bold, eye-catching concept print that stops people in their tracks.</p>
+          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R249</span></div>
+          <a href="#contact" class="pc-btn">Order Now</a>
+        </div>
+      </div>
+
+      <div class="gcard reveal d2">
+        <div class="pc-img-wrap">
+          <img class="pc-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM%20(1).jpeg" alt="Lifestyle Portrait Canvas">
+        </div>
+        <div class="pc-body">
+          <div class="pc-tag">Popular</div>
+          <div class="pc-name">Lifestyle Portrait Canvas</div>
+          <p class="pc-desc">Capture your personality and style in a vibrant, high-resolution canvas that commands attention.</p>
+          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R299</span></div>
+          <a href="#contact" class="pc-btn">Order Now</a>
+        </div>
+      </div>
+
+      <div class="gcard reveal d3">
+        <div class="pc-img-wrap">
+          <img class="pc-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(3).jpeg" alt="Family Canvas Print">
+        </div>
+        <div class="pc-body">
+          <div class="pc-tag">Top Pick</div>
+          <div class="pc-name">Family Canvas Print</div>
+          <p class="pc-desc">Preserve your family's most cherished memories in timeless monochrome or full colour.</p>
+          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R349</span></div>
+          <a href="#contact" class="pc-btn">Order Now</a>
+        </div>
+      </div>
+
+      <div class="gcard reveal d4">
+        <div class="pc-img-wrap">
+          <img class="pc-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM.jpeg" alt="Professional Portrait Canvas">
+        </div>
+        <div class="pc-body">
+          <div class="pc-tag">Premium</div>
+          <div class="pc-name">Professional Portrait Canvas</div>
+          <p class="pc-desc">Sharp, high-resolution prints ideal for professional headshots and office or boardroom walls.</p>
+          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R399</span></div>
+          <a href="#contact" class="pc-btn">Order Now</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CANVAS COMBOS
+============================================================ -->
+<section id="combos">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>Canvas <span class="g-text">Combos</span></h2>
+      <div class="sec-line"></div>
+      <p>Save more with our specially curated combo packages — perfect gifts and stunning home décor sets.</p>
+    </div>
+    <div class="combo-grid">
+
+      <div class="gcard combo-card reveal d1">
+        <span class="combo-badge">Starter</span>
+        <div class="combo-img-wrap">
+          <img class="combo-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(1).jpeg" alt="Combo 1">
+        </div>
+        <div class="combo-body">
+          <div class="combo-num">Combo 01</div>
+          <div class="combo-name">Double Print Combo</div>
+          <p class="combo-desc">Two premium canvases for your living room or as a thoughtful gift for someone special.</p>
+          <ul class="combo-list">
+            <li>2 × A4 Canvas Prints</li>
+            <li>Standard wooden frame</li>
+            <li>Free nationwide delivery</li>
+          </ul>
+          <div class="combo-pr-row">
+            <span class="combo-pr">R549</span>
+            <span class="combo-save">Save R49</span>
+          </div>
+          <a href="#contact" class="pc-btn" style="margin-top:16px;display:block">Order Combo</a>
+        </div>
+      </div>
+
+      <div class="gcard combo-card featured reveal d2">
+        <span class="combo-badge">Best Value</span>
+        <div class="combo-img-wrap">
+          <img class="combo-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(2).jpeg" alt="Combo 2">
+        </div>
+        <div class="combo-body">
+          <div class="combo-num">Combo 02</div>
+          <div class="combo-name">Family Gallery Combo</div>
+          <p class="combo-desc">Our most popular combo — create a stunning gallery wall that tells your family's story.</p>
+          <ul class="combo-list">
+            <li>1 × A3 + 2 × A4 Canvas Prints</li>
+            <li>Premium wooden frames</li>
+            <li>Free nationwide delivery</li>
+            <li>Hanging kit included</li>
+          </ul>
+          <div class="combo-pr-row">
+            <span class="combo-pr">R849</span>
+            <span class="combo-save">Save R99</span>
+          </div>
+          <a href="#contact" class="pc-btn" style="margin-top:16px;display:block">Order Combo</a>
+        </div>
+      </div>
+
+      <div class="gcard combo-card reveal d3">
+        <span class="combo-badge">Premium</span>
+        <div class="combo-img-wrap">
+          <img class="combo-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM%20(1).jpeg" alt="Combo 3">
+        </div>
+        <div class="combo-body">
+          <div class="combo-num">Combo 03</div>
+          <div class="combo-name">Statement Wall Combo</div>
+          <p class="combo-desc">Make a bold statement with a large centrepiece canvas flanked by two supporting prints.</p>
+          <ul class="combo-list">
+            <li>1 × A2 + 2 × A4 Canvas Prints</li>
+            <li>Premium wooden frames</li>
+            <li>Free nationwide delivery</li>
+            <li>Priority processing</li>
+          </ul>
+          <div class="combo-pr-row">
+            <span class="combo-pr">R1 199</span>
+            <span class="combo-save">Save R149</span>
+          </div>
+          <a href="#contact" class="pc-btn" style="margin-top:16px;display:block">Order Combo</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="combos-cta reveal">
+      <a href="#contact" class="btn btn-grad">View All Options &amp; Order</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INDIVIDUAL CANVASES
+============================================================ -->
+<section id="ind-sizes">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>Individual <span class="g-text">Canvases</span></h2>
+      <div class="sec-line"></div>
+      <p>Choose the perfect size for your space. Scroll to explore all available sizes.</p>
+    </div>
+    <div class="hscroll reveal">
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM.jpeg" alt="A5"></div>
+        <div class="sz-info"><div class="sz-label">A5</div><div class="sz-dims">14.8 × 21 cm</div><div class="sz-price">From R149</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM.jpeg" alt="A4"></div>
+        <div class="sz-info"><div class="sz-label">A4</div><div class="sz-dims">21 × 29.7 cm</div><div class="sz-price">From R249</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM%20(1).jpeg" alt="A3"></div>
+        <div class="sz-info"><div class="sz-label">A3</div><div class="sz-dims">29.7 × 42 cm</div><div class="sz-price">From R349</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(1).jpeg" alt="A2"></div>
+        <div class="sz-info"><div class="sz-label">A2</div><div class="sz-dims">42 × 59.4 cm</div><div class="sz-price">From R499</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(2).jpeg" alt="A1"></div>
+        <div class="sz-info"><div class="sz-label">A1</div><div class="sz-dims">59.4 × 84.1 cm</div><div class="sz-price">From R699</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(3).jpeg" alt="A0"></div>
+        <div class="sz-info"><div class="sz-label">A0</div><div class="sz-dims">84.1 × 118.9 cm</div><div class="sz-price">From R999</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE PROCESS
+============================================================ -->
+<section id="process">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>How It <span class="g-text">Works</span></h2>
+      <div class="sec-line"></div>
+      <p>From photo to doorstep — our simple three-step process makes ordering effortless.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-step reveal d1">
+        <div class="proc-icon-wrap">📸<div class="proc-num">1</div></div>
+        <h3>Upload Your Photo</h3>
+        <p>Send us your favourite photo via WhatsApp or email. We accept JPG, PNG, HEIC, and most common formats. The higher the resolution, the sharper the print.</p>
+      </div>
+      <div class="proc-step reveal d2">
+        <div class="proc-icon-wrap">🖨️<div class="proc-num">2</div></div>
+        <h3>We Print &amp; Frame</h3>
+        <p>Our team prints your image in vivid, high-resolution quality using premium inks, then hand-stretches it over a solid wooden frame — ready to hang.</p>
+      </div>
+      <div class="proc-step reveal d3">
+        <div class="proc-icon-wrap">🚚<div class="proc-num">3</div></div>
+        <h3>Delivered to Your Door</h3>
+        <p>Your canvas is carefully packaged and delivered anywhere in South Africa within 3–5 working days — straight to your door.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY
+============================================================ -->
+<section id="gallery">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>Our Latest <span class="g-text">Work</span></h2>
+      <div class="sec-line"></div>
+      <p>Real canvases for real people — browse our recent prints and get inspired.</p>
+    </div>
+    <div class="gallery-masonry reveal">
+      <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM.jpeg')">
+        <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM.jpeg" alt="Custom concept canvas">
+      </div>
+      <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(2).jpeg')">
+        <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(2).jpeg" alt="Family canvas print">
+      </div>
+      <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(3).jpeg')">
+        <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(3).jpeg" alt="Black and white family canvas">
+      </div>
+      <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM%20(1).jpeg')">
+        <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM%20(1).jpeg" alt="Lifestyle portrait canvas">
+      </div>
+      <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM.jpeg')">
+        <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM.jpeg" alt="Professional portrait canvas">
+      </div>
+      <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(1).jpeg')">
+        <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(1).jpeg" alt="Beach portrait canvas">
+      </div>
+      <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.37%20PM.jpeg')">
+        <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.37%20PM.jpeg" alt="Couple portrait canvas">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SIZES TABLE
+============================================================ -->
+<section id="sizes-table">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>Canvas <span class="g-text">Size Guide</span></h2>
+      <div class="sec-line"></div>
+      <p>Choose from six standard sizes to perfectly fit your space and budget.</p>
+    </div>
+    <div class="tbl-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Dimensions</th>
+            <th>Best For</th>
+            <th>Starting Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="sz-badge">A5</span></td><td>14.8 × 21 cm</td><td>Desk displays, shelves &amp; gifts</td><td><span class="tbl-price">R149</span></td></tr>
+          <tr><td><span class="sz-badge">A4</span></td><td>21 × 29.7 cm</td><td>Bedroom, office &amp; small walls</td><td><span class="tbl-price">R249</span></td></tr>
+          <tr><td><span class="sz-badge">A3</span></td><td>29.7 × 42 cm</td><td>Statement pieces &amp; feature walls</td><td><span class="tbl-price">R349</span></td></tr>
+          <tr><td><span class="sz-badge">A2</span></td><td>42 × 59.4 cm</td><td>Living rooms &amp; hallways</td><td><span class="tbl-price">R499</span></td></tr>
+          <tr><td><span class="sz-badge">A1</span></td><td>59.4 × 84.1 cm</td><td>Large focal pieces &amp; open spaces</td><td><span class="tbl-price">R699</span></td></tr>
+          <tr><td><span class="sz-badge">A0</span></td><td>84.1 × 118.9 cm</td><td>Grand statement walls &amp; galleries</td><td><span class="tbl-price">R999</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GIFT VOUCHERS
+============================================================ -->
+<section id="vouchers">
+  <div class="container">
+    <div class="voucher-grid">
+
+      <div class="reveal-l">
+        <div class="v-card">
+          <!-- dark logo on dark card, light logo on light card -->
+          <img class="v-logo logo-dark"  src="inspirations/WhatsApp%20Image%202026-03-15%20at%208.07.24%20PM.jpeg" alt="T.M Global Solutions">
+          <img class="v-logo logo-light" src="inspirations/logo2.png" alt="T.M Global Solutions">
+          <div class="v-title">Gift Voucher</div>
+          <div class="v-sub">T.M Global Solutions</div>
+          <div class="v-amount">R500</div>
+          <div class="v-dash"></div>
+          <div class="v-valid">Valid for 12 months · Redeemable via WhatsApp or email</div>
+        </div>
+      </div>
+
+      <div class="v-content reveal-r">
+        <h2><span class="g-text">Gift</span> Vouchers</h2>
+        <p>Give the gift of beautiful memories. Our gift vouchers are the perfect present for birthdays, anniversaries, and special occasions — letting your loved ones choose any canvas they love.</p>
+        <ul class="v-features">
+          <li><span class="vi">🎁</span><span>Available in any denomination from R149</span></li>
+          <li><span class="vi">✉️</span><span>Delivered instantly via WhatsApp or email</span></li>
+          <li><span class="vi">📅</span><span>Valid for 12 months from date of purchase</span></li>
+          <li><span class="vi">🎨</span><span>Redeemable on any canvas print or combo</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-grad">Buy a Gift Voucher</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DELIVERY
+============================================================ -->
+<section id="delivery">
+  <div class="container">
+    <div class="del-inner">
+      <h2 class="reveal"><span class="g-text">We Deliver</span> Nationwide</h2>
+      <p class="reveal">No matter where you are in South Africa — from Cape Town to Limpopo — we'll get your canvas to you safely and on time.</p>
+      <div class="del-cards">
+        <div class="del-card reveal d1">
+          <span class="del-icon">⚡</span>
+          <h3>Fast Delivery</h3>
+          <p>Orders processed within 48 hours and delivered within 3–5 working days nationwide.</p>
+        </div>
+        <div class="del-card reveal d2">
+          <span class="del-icon">📦</span>
+          <h3>Secure Packaging</h3>
+          <p>Every canvas is carefully wrapped and protected to arrive at your door in perfect condition.</p>
+        </div>
+        <div class="del-card reveal d3">
+          <span class="del-icon">🇿🇦</span>
+          <h3>Nationwide</h3>
+          <p>We ship to all major cities and towns right across South Africa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER / CONTACT
+============================================================ -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="f-brand">
+          <img class="f-logo logo-dark"  src="inspirations/WhatsApp%20Image%202026-03-15%20at%208.07.24%20PM.jpeg" alt="T.M Global Solutions">
+          <img class="f-logo logo-light" src="inspirations/logo2.png" alt="T.M Global Solutions">
+          <p class="f-desc">South Africa's premium canvas printing service. We turn your cherished memories into gallery-quality wall art, delivered to your door.</p>
+          <div class="f-socials">
+            <a href="https://www.facebook.com/share/1CBZrV7nsw/?mibextid=wwXIfr" class="soc-btn" title="Facebook" target="_blank" rel="noopener noreferrer">FB</a>
+            <a href="https://www.instagram.com/__tedbear?igsh=MXRpMnpreXlsaXhyNg==" class="soc-btn" title="Instagram" target="_blank" rel="noopener noreferrer">IG</a>
+            <a href="https://wa.me/27799024253" class="soc-btn" title="WhatsApp" target="_blank" rel="noopener noreferrer">WA</a>
+            <a href="https://www.tiktok.com/@__tedbear?_r=1&_t=ZS-94iQCVHbk1M" class="soc-btn" title="TikTok" target="_blank" rel="noopener noreferrer">TT</a>
+          </div>
+        </div>
+
+        <div class="f-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#popular">Products</a></li>
+            <li><a href="#combos">Combos</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#sizes-table">Size Guide</a></li>
+            <li><a href="#vouchers">Gift Vouchers</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4>Location</h4>
+          <div class="f-contact-item"><span class="ico">📍</span><span>11158 Mcube Street, Tokoza<br>Gauteng, 1426, South Africa</span></div>
+          <div class="f-contact-item"><span class="ico">🕐</span><span>Mon – Fri: 9am – 6pm<br>Saturday: 9am – 12pm<br>Sunday: Closed</span></div>
+        </div>
+
+        <div class="f-col">
+          <h4>Get In Touch</h4>
+          <div class="f-contact-item"><span class="ico">📞</span><span>+27 79 902 4253</span></div>
+          <div class="f-contact-item"><span class="ico">✉️</span><span>info@tmglobalsolutions.co.za</span></div>
+          <div class="f-contact-item"><span class="ico">💬</span><span>WhatsApp us anytime to place an order or get a quote</span></div>
+          <a href="#" class="btn btn-grad" style="margin-top:18px;font-size:.72rem;padding:11px 24px">💬 WhatsApp Us</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p class="copyright">© 2026 <strong>T.M Global Solutions</strong>. All rights reserved.</p>
+        <p class="copyright">Crafted with ❤️ in South Africa</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- floating WhatsApp -->
+<a href="#" class="wa-float" title="WhatsApp Us">💬</a>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  /* ── Nav scroll ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  /* ── Active link ── */
+  const sections = document.querySelectorAll('section[id], footer[id]');
+  const navAs    = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  }, { passive: true });
+
+  /* ── Mobile menu ── */
+  function mobOpen()  { document.getElementById('mob-nav').classList.add('open');    document.body.style.overflow = 'hidden'; }
+  function mobClose() { document.getElementById('mob-nav').classList.remove('open'); document.body.style.overflow = '';       }
+
+  /* ── Theme toggle ── */
+  function toggleTheme() {
+    var html    = document.documentElement;
+    var current = html.getAttribute('data-theme') || 'dark';
+    var next    = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('tm-theme', next);
+  }
+
+  /* ── Scroll reveal ── */
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }),
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => io.observe(el));
+
+  /* ── Lightbox ── */
+  function lbOpen(src) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function lbClose() {
+    document.getElementById('lb').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lb').addEventListener('click', e => { if (e.target === e.currentTarget) lbClose(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lbClose(); });
+
+  /* ══════════════════════════════════════════════════════
+     WHATSAPP CONFIG
+     Change WA_PHONE to your number:
+       • Remove the leading 0
+       • Add country code 27 (South Africa)
+       • Example: 082 345 6789  →  27823456789
+  ══════════════════════════════════════════════════════ */
+  var WA_PHONE = '27799024253';
+
+  (function applyWaLinks() {
+    var base       = 'https://wa.me/' + WA_PHONE;
+    var msgOrder   = encodeURIComponent("Hi T.M Global Solutions! I'd like to order a canvas print. Please assist me. 🖼️");
+    var msgCombo   = encodeURIComponent("Hi T.M Global Solutions! I'd like to order a canvas combo. Please assist me. 🖼️");
+    var msgVoucher = encodeURIComponent("Hi T.M Global Solutions! I'm interested in purchasing a gift voucher. Please assist. 🎁");
+    var msgGeneral = encodeURIComponent("Hi T.M Global Solutions! I'd like to place an order. Please assist me. 🖼️");
+
+    function setWa(el, msg) {
+      el.href = base + '?text=' + msg;
+      el.setAttribute('target', '_blank');
+      el.setAttribute('rel', 'noopener noreferrer');
+    }
+
+    // All gradient CTA buttons that currently scroll to #contact
+    document.querySelectorAll('.btn-grad[href="#contact"]').forEach(function(el) {
+      var t = el.textContent.trim().toLowerCase();
+      if      (t.includes('voucher'))              setWa(el, msgVoucher);
+      else if (t.includes('combo') || t.includes('options')) setWa(el, msgCombo);
+      else                                         setWa(el, msgOrder);
+    });
+
+    // Card "Order Now" / "Order Combo" buttons
+    document.querySelectorAll('.pc-btn[href="#contact"]').forEach(function(el) {
+      setWa(el, el.textContent.trim().toLowerCase().includes('combo') ? msgCombo : msgOrder);
+    });
+
+    // Floating WhatsApp bubble (href="#")
+    var waFloat = document.querySelector('.wa-float');
+    if (waFloat) setWa(waFloat, msgGeneral);
+
+    // Footer "💬 WhatsApp Us" button (href="#")
+    document.querySelectorAll('a.btn-grad[href="#"]').forEach(function(el) {
+      setWa(el, msgGeneral);
+    });
+  })();
+</script>
+
+
+<!-- ═══════════════════════════════════════════
+     GUIDED TOUR
+═══════════════════════════════════════════ -->
+<div id="tour-overlay"></div>
+
+<div id="tour-card">
+  <div class="tc-top">
+    <span id="tc-pill">1 / 11</span>
+    <button class="tc-x" onclick="tourEnd()" aria-label="Close tour">✕</button>
+  </div>
+  <div class="tc-progress-rail"><div id="tc-bar"></div></div>
+  <div id="tc-icon">🏠</div>
+  <h3 id="tc-title">Welcome!</h3>
+  <p id="tc-desc">Let's walk through the website together.</p>
+  <div id="tc-dots"></div>
+  <div class="tc-btns">
+    <button id="tc-prev" onclick="tourMove(-1)">← Back</button>
+    <button id="tc-next" onclick="tourMove(1)">Next →</button>
+  </div>
+</div>
+
+<button id="tour-trigger" onclick="startTour()" title="Start a guided tour of this website">
+  🎯 Take a Tour
+</button>
+
+<style>
+/* ══ TOUR STYLES ══ */
+#tour-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.76);
+  z-index: 9980;
+  pointer-events: none;
+}
+#tour-overlay.t-on { display: block; }
+
+.tour-lit {
+  position: relative !important;
+  z-index: 9985 !important;
+  outline: 2px solid #00E5FF !important;
+  outline-offset: 6px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 0 8px rgba(0,229,255,.07), 0 0 50px rgba(0,229,255,.2) !important;
+}
+
+#tour-card {
+  display: none;
+  position: fixed;
+  bottom: 110px;
+  right: 24px;
+  width: 300px;
+  max-width: calc(100vw - 48px);
+  background: #0e0e15;
+  border: 1px solid rgba(0,229,255,.3);
+  border-radius: 18px;
+  padding: 22px 22px 18px;
+  z-index: 9995;
+  box-shadow: 0 0 50px rgba(0,229,255,.12), 0 24px 64px rgba(0,0,0,.7);
+  animation: tc-in .25s ease;
+}
+[data-theme="light"] #tour-card {
+  background: #fff;
+  border-color: rgba(155,48,255,.22);
+  box-shadow: 0 8px 40px rgba(0,0,0,.14), 0 0 30px rgba(155,48,255,.08);
+}
+#tour-card.t-on { display: block; }
+@keyframes tc-in {
+  from { opacity:0; transform: translateY(14px); }
+  to   { opacity:1; transform: none; }
+}
+
+.tc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+#tc-pill {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  background: linear-gradient(135deg, #00E5FF, #9B30FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tc-x {
+  background: none;
+  border: none;
+  color: #7a7a99;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 4px;
+  line-height: 1;
+  transition: color .2s;
+}
+.tc-x:hover { color: #ff4d6d; }
+
+.tc-progress-rail {
+  height: 3px;
+  background: rgba(155,48,255,.15);
+  border-radius: 99px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+#tc-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00E5FF, #9B30FF, #FF00C8);
+  border-radius: 99px;
+  transition: width .35s ease;
+}
+
+#tc-icon { font-size: 28px; margin-bottom: 6px; }
+
+#tc-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #e6e6f0;
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+[data-theme="light"] #tc-title { color: #111120; }
+
+#tc-desc {
+  font-size: 13px;
+  color: #7a7a99;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+[data-theme="light"] #tc-desc { color: #62627a; }
+
+#tc-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+.tc-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(155,48,255,.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background .25s, transform .25s;
+}
+.tc-dot.active {
+  background: #00E5FF;
+  transform: scale(1.35);
+}
+
+.tc-btns { display: flex; gap: 10px; }
+.tc-btns button {
+  flex: 1;
+  padding: 9px 0;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: opacity .15s, transform .15s;
+}
+.tc-btns button:active { transform: scale(.97); }
+#tc-prev {
+  background: rgba(155,48,255,.12);
+  color: #9B30FF;
+  border: 1px solid rgba(155,48,255,.22);
+}
+#tc-prev:hover { background: rgba(155,48,255,.22); }
+#tc-next {
+  background: linear-gradient(135deg, #00E5FF, #9B30FF);
+  color: #fff;
+}
+#tc-next:hover { opacity: .88; }
+
+#tour-trigger {
+  position: fixed;
+  bottom: 168px;
+  right: 24px;
+  background: rgba(0,229,255,.08);
+  border: 1px solid rgba(0,229,255,.32);
+  border-radius: 24px;
+  color: #00E5FF;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  padding: 10px 16px;
+  cursor: pointer;
+  z-index: 9979;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .2s, box-shadow .2s, background .2s;
+  white-space: nowrap;
+}
+#tour-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,229,255,.2);
+  background: rgba(0,229,255,.14);
+}
+#tour-trigger.t-hidden { display: none; }
+
+@media (max-width: 480px) {
+  #tour-card    { bottom: 90px; right: 12px; left: 12px; width: auto; max-width: none; }
+  #tour-trigger { bottom: 148px; right: 16px; font-size: 10px; padding: 8px 13px; }
+}
+</style>
+
+<script>
+/* ══ GUIDED TOUR ══ */
+var _tourStep   = 0;
+var _tourActive = false;
+var _tourLit    = null;
+
+var tourSteps = [
+  {
+    sel:   'nav',
+    icon:  '🧭',
+    title: 'Navigation Bar',
+    desc:  'The top navigation lets visitors jump to any section, toggle between dark and light theme, and click "Order Now" to open WhatsApp directly.'
+  },
+  {
+    sel:   '#hero',
+    icon:  '🌟',
+    title: 'Hero Section',
+    desc:  'The first impression — a bold headline, a short business tagline, and a call-to-action button that starts a WhatsApp chat instantly.'
+  },
+  {
+    sel:   '#popular',
+    icon:  '🖼️',
+    title: 'Popular Prints',
+    desc:  'Highlights the most popular canvas sizes with real product photos, exact dimensions, pricing, and individual "Order Now" buttons per size.'
+  },
+  {
+    sel:   '#combos',
+    icon:  '🎨',
+    title: 'Combo Deals',
+    desc:  'Bundled multi-canvas packages at great value. Each combo shows what\'s included and has an "Order Combo" button wired to WhatsApp.'
+  },
+  {
+    sel:   '#ind-sizes',
+    icon:  '📐',
+    title: 'Individual Sizes & Pricing',
+    desc:  'A clean pricing grid covering every available canvas size so clients can find and compare exactly what they need before ordering.'
+  },
+  {
+    sel:   '#process',
+    icon:  '⚙️',
+    title: 'How It Works',
+    desc:  'A simple step-by-step breakdown of the ordering process — from sending a photo to receiving the finished canvas at the door.'
+  },
+  {
+    sel:   '#gallery',
+    icon:  '🖼️',
+    title: 'Photo Gallery',
+    desc:  'A masonry gallery of real work produced by T.M Global Solutions. Visitors can click any image to view it full-screen in a lightbox.'
+  },
+  {
+    sel:   '#sizes-table',
+    icon:  '📏',
+    title: 'Size Comparison Table',
+    desc:  'A visual size reference so clients can compare canvas dimensions side by side and choose the perfect fit for their wall space.'
+  },
+  {
+    sel:   '#vouchers',
+    icon:  '🎁',
+    title: 'Gift Vouchers',
+    desc:  'Clients can purchase gift vouchers for loved ones — perfect for birthdays and events. Linked directly to WhatsApp for easy purchase.'
+  },
+  {
+    sel:   '#delivery',
+    icon:  '🚚',
+    title: 'Delivery Information',
+    desc:  'Covers delivery options, estimated timelines, and nationwide shipping details — building trust and setting clear expectations upfront.'
+  },
+  {
+    sel:   '#contact',
+    icon:  '📞',
+    title: 'Contact & Footer',
+    desc:  'The footer shows the physical address, business hours, WhatsApp number, and links to all social pages — Facebook, Instagram, TikTok, and WhatsApp.'
+  }
+];
+
+function startTour() {
+  _tourStep   = 0;
+  _tourActive = true;
+  document.getElementById('tour-trigger').classList.add('t-hidden');
+  document.getElementById('tour-overlay').classList.add('t-on');
+  document.getElementById('tour-card').classList.add('t-on');
+  showTourStep();
+}
+
+function showTourStep() {
+  var step  = tourSteps[_tourStep];
+  var total = tourSteps.length;
+
+  document.getElementById('tc-pill').textContent  = (_tourStep + 1) + ' / ' + total;
+  document.getElementById('tc-icon').textContent  = step.icon;
+  document.getElementById('tc-title').textContent = step.title;
+  document.getElementById('tc-desc').textContent  = step.desc;
+  document.getElementById('tc-bar').style.width   = ((_tourStep + 1) / total * 100) + '%';
+
+  /* dots */
+  var dotsEl = document.getElementById('tc-dots');
+  dotsEl.innerHTML = '';
+  for (var i = 0; i < total; i++) {
+    var d = document.createElement('button');
+    d.className = 'tc-dot' + (i === _tourStep ? ' active' : '');
+    d.setAttribute('aria-label', 'Go to step ' + (i + 1));
+    (function(idx) { d.onclick = function() { _tourStep = idx; showTourStep(); }; })(i);
+    dotsEl.appendChild(d);
+  }
+
+  /* prev / next buttons */
+  var prevBtn = document.getElementById('tc-prev');
+  var nextBtn = document.getElementById('tc-next');
+  prevBtn.style.visibility = _tourStep === 0 ? 'hidden' : 'visible';
+  if (_tourStep === total - 1) {
+    nextBtn.textContent = 'Finish ✓';
+    nextBtn.onclick = tourEnd;
+  } else {
+    nextBtn.textContent = 'Next →';
+    nextBtn.onclick = function() { tourMove(1); };
+  }
+
+  /* spotlight */
+  if (_tourLit) { _tourLit.classList.remove('tour-lit'); _tourLit = null; }
+  var target = document.querySelector(step.sel);
+  if (target) {
+    _tourLit = target;
+    target.classList.add('tour-lit');
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  /* re-trigger card animation */
+  var card = document.getElementById('tour-card');
+  card.style.animation = 'none';
+  void card.offsetHeight;
+  card.style.animation = 'tc-in .25s ease';
+}
+
+function tourMove(dir) {
+  var next = _tourStep + dir;
+  if (next < 0 || next >= tourSteps.length) return;
+  _tourStep = next;
+  showTourStep();
+}
+
+function tourEnd() {
+  _tourActive = false;
+  if (_tourLit) { _tourLit.classList.remove('tour-lit'); _tourLit = null; }
+  document.getElementById('tour-overlay').classList.remove('t-on');
+  document.getElementById('tour-card').classList.remove('t-on');
+  document.getElementById('tour-trigger').classList.remove('t-hidden');
+}
+
+/* keyboard nav */
+document.addEventListener('keydown', function(e) {
+  if (!_tourActive) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); tourMove(1);  }
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { e.preventDefault(); tourMove(-1); }
+  if (e.key === 'Escape') tourEnd();
+});
+</script>
+
+</body>
+</html>
