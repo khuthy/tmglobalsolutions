@@ -482,10 +482,10 @@
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background: radial-gradient(ellipse at 50% 60%, var(--proc-blob) 0%, transparent 65%);
     }
-    .proc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; position: relative; }
+    .proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; position: relative; }
     .proc-grid::before {
       content: ''; position: absolute;
-      top: 52px; left: calc(33.33% - 10px); right: calc(33.33% - 10px);
+      top: 52px; left: calc(25% - 10px); right: calc(25% - 10px);
       height: 2px; background: var(--grad); opacity: .22;
     }
     .proc-step { text-align: center; }
@@ -716,6 +716,8 @@
     @media (max-width: 1024px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .combo-grid  { grid-template-columns: 1fr 1fr; }
+      .proc-grid   { grid-template-columns: 1fr 1fr; }
+      .proc-grid::before { display: none; }
     }
     @media (max-width: 768px) {
       section { padding: 68px 0; }
@@ -761,6 +763,7 @@
   <a href="#popular"    onclick="mobClose()">Products</a>
   <a href="#combos"     onclick="mobClose()">Combos</a>
   <a href="#ind-sizes"  onclick="mobClose()">Sizes</a>
+  <a href="#corex"      onclick="mobClose()">Welcome Boards</a>
   <a href="#vouchers"   onclick="mobClose()">Gift Vouchers</a>
   <a href="#contact"    onclick="mobClose()">Contact</a>
   <div class="mob-theme-row">
@@ -798,6 +801,7 @@
       <li><a href="#popular">Products</a></li>
       <li><a href="#combos">Combos</a></li>
       <li><a href="#ind-sizes">Sizes</a></li>
+      <li><a href="#corex">Welcome Boards</a></li>
       <li><a href="#vouchers">Gift Vouchers</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -841,8 +845,8 @@
         </div>
         <div class="hero-stats">
           <div><div class="hs-num">500+</div><div class="hs-lbl">Happy Clients</div></div>
-          <div><div class="hs-num">6</div><div class="hs-lbl">Canvas Sizes</div></div>
-          <div><div class="hs-num">48h</div><div class="hs-lbl">Turnaround</div></div>
+          <div><div class="hs-num">5+</div><div class="hs-lbl">Canvas Sizes</div></div>
+          <div><div class="hs-num">2-5</div><div class="hs-lbl">Working Days</div></div>
         </div>
       </div>
 
@@ -877,7 +881,7 @@
           <div class="pc-tag">Best Seller</div>
           <div class="pc-name">Custom Concept Canvas</div>
           <p class="pc-desc">Your photo reimagined as a bold, eye-catching concept print that stops people in their tracks.</p>
-          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R249</span></div>
+          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R400</span></div>
           <a href="#contact" class="pc-btn">Order Now</a>
         </div>
       </div>
@@ -890,7 +894,7 @@
           <div class="pc-tag">Popular</div>
           <div class="pc-name">Lifestyle Portrait Canvas</div>
           <p class="pc-desc">Capture your personality and style in a vibrant, high-resolution canvas that commands attention.</p>
-          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R299</span></div>
+          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R500</span></div>
           <a href="#contact" class="pc-btn">Order Now</a>
         </div>
       </div>
@@ -903,7 +907,7 @@
           <div class="pc-tag">Top Pick</div>
           <div class="pc-name">Family Canvas Print</div>
           <p class="pc-desc">Preserve your family's most cherished memories in timeless monochrome or full colour.</p>
-          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R349</span></div>
+          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R800</span></div>
           <a href="#contact" class="pc-btn">Order Now</a>
         </div>
       </div>
@@ -916,7 +920,7 @@
           <div class="pc-tag">Premium</div>
           <div class="pc-name">Professional Portrait Canvas</div>
           <p class="pc-desc">Sharp, high-resolution prints ideal for professional headshots and office or boardroom walls.</p>
-          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R399</span></div>
+          <div class="pc-price-row"><span class="pc-from">From</span><span class="pc-price">R1 200</span></div>
           <a href="#contact" class="pc-btn">Order Now</a>
         </div>
       </div>
@@ -938,22 +942,21 @@
     <div class="combo-grid">
 
       <div class="gcard combo-card reveal d1">
-        <span class="combo-badge">Starter</span>
+        <span class="combo-badge">Great Value</span>
         <div class="combo-img-wrap">
-          <img class="combo-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(1).jpeg" alt="Combo 1">
+          <img class="combo-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM%20(1).jpeg" alt="A3 x 3 Combo">
         </div>
         <div class="combo-body">
           <div class="combo-num">Combo 01</div>
-          <div class="combo-name">Double Print Combo</div>
-          <p class="combo-desc">Two premium canvases for your living room or as a thoughtful gift for someone special.</p>
+          <div class="combo-name">A3 Triple Combo</div>
+          <p class="combo-desc">Three A3 canvases for a beautiful gallery wall arrangement in any room.</p>
           <ul class="combo-list">
-            <li>2 × A4 Canvas Prints</li>
-            <li>Standard wooden frame</li>
-            <li>Free nationwide delivery</li>
+            <li>3 × A3 Canvas Prints (300 × 400 mm each)</li>
+            <li>Premium quality print</li>
+            <li>Delivery at a fee</li>
           </ul>
           <div class="combo-pr-row">
-            <span class="combo-pr">R549</span>
-            <span class="combo-save">Save R49</span>
+            <span class="combo-pr">R900</span>
           </div>
           <a href="#contact" class="pc-btn" style="margin-top:16px;display:block">Order Combo</a>
         </div>
@@ -962,21 +965,19 @@
       <div class="gcard combo-card featured reveal d2">
         <span class="combo-badge">Best Value</span>
         <div class="combo-img-wrap">
-          <img class="combo-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(2).jpeg" alt="Combo 2">
+          <img class="combo-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(1).jpeg" alt="A2 x 3 Combo">
         </div>
         <div class="combo-body">
           <div class="combo-num">Combo 02</div>
-          <div class="combo-name">Family Gallery Combo</div>
-          <p class="combo-desc">Our most popular combo — create a stunning gallery wall that tells your family's story.</p>
+          <div class="combo-name">A2 Triple Combo</div>
+          <p class="combo-desc">Three A2 canvases — our most popular combo for creating a stunning gallery wall.</p>
           <ul class="combo-list">
-            <li>1 × A3 + 2 × A4 Canvas Prints</li>
-            <li>Premium wooden frames</li>
-            <li>Free nationwide delivery</li>
-            <li>Hanging kit included</li>
+            <li>3 × A2 Canvas Prints (400 × 600 mm each)</li>
+            <li>Premium quality print</li>
+            <li>Delivery at a fee</li>
           </ul>
           <div class="combo-pr-row">
-            <span class="combo-pr">R849</span>
-            <span class="combo-save">Save R99</span>
+            <span class="combo-pr">R1 200</span>
           </div>
           <a href="#contact" class="pc-btn" style="margin-top:16px;display:block">Order Combo</a>
         </div>
@@ -985,21 +986,19 @@
       <div class="gcard combo-card reveal d3">
         <span class="combo-badge">Premium</span>
         <div class="combo-img-wrap">
-          <img class="combo-img" src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM%20(1).jpeg" alt="Combo 3">
+          <img class="combo-img" src="images/A1%20x%203%20Combo.jpeg" alt="A1 x 3 Combo">
         </div>
         <div class="combo-body">
           <div class="combo-num">Combo 03</div>
-          <div class="combo-name">Statement Wall Combo</div>
-          <p class="combo-desc">Make a bold statement with a large centrepiece canvas flanked by two supporting prints.</p>
+          <div class="combo-name">A1 Triple Combo</div>
+          <p class="combo-desc">Three large A1 canvases for a bold, eye-catching feature wall in your home or office.</p>
           <ul class="combo-list">
-            <li>1 × A2 + 2 × A4 Canvas Prints</li>
-            <li>Premium wooden frames</li>
-            <li>Free nationwide delivery</li>
-            <li>Priority processing</li>
+            <li>3 × A1 Canvas Prints (600 × 900 mm each)</li>
+            <li>Premium quality print</li>
+            <li>Delivery at a fee</li>
           </ul>
           <div class="combo-pr-row">
-            <span class="combo-pr">R1 199</span>
-            <span class="combo-save">Save R149</span>
+            <span class="combo-pr">R2 100</span>
           </div>
           <a href="#contact" class="pc-btn" style="margin-top:16px;display:block">Order Combo</a>
         </div>
@@ -1024,29 +1023,75 @@
     </div>
     <div class="hscroll reveal">
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM.jpeg" alt="A5"></div>
-        <div class="sz-info"><div class="sz-label">A5</div><div class="sz-dims">14.8 × 21 cm</div><div class="sz-price">From R149</div></div>
-      </div>
-      <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM.jpeg" alt="A4"></div>
-        <div class="sz-info"><div class="sz-label">A4</div><div class="sz-dims">21 × 29.7 cm</div><div class="sz-price">From R249</div></div>
-      </div>
-      <div class="gcard sz-card">
         <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM%20(1).jpeg" alt="A3"></div>
-        <div class="sz-info"><div class="sz-label">A3</div><div class="sz-dims">29.7 × 42 cm</div><div class="sz-price">From R349</div></div>
+        <div class="sz-info"><div class="sz-label">A3</div><div class="sz-dims">300 × 400 mm</div><div class="sz-price">R400</div></div>
       </div>
       <div class="gcard sz-card">
         <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(1).jpeg" alt="A2"></div>
-        <div class="sz-info"><div class="sz-label">A2</div><div class="sz-dims">42 × 59.4 cm</div><div class="sz-price">From R499</div></div>
+        <div class="sz-info"><div class="sz-label">A2</div><div class="sz-dims">400 × 600 mm</div><div class="sz-price">R500</div></div>
       </div>
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(2).jpeg" alt="A1"></div>
-        <div class="sz-info"><div class="sz-label">A1</div><div class="sz-dims">59.4 × 84.1 cm</div><div class="sz-price">From R699</div></div>
+        <div class="sz-img-wrap"><img src="images/A1.jpeg" alt="A1"></div>
+        <div class="sz-info"><div class="sz-label">A1</div><div class="sz-dims">600 × 900 mm</div><div class="sz-price">R800</div></div>
       </div>
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(3).jpeg" alt="A0"></div>
-        <div class="sz-info"><div class="sz-label">A0</div><div class="sz-dims">84.1 × 118.9 cm</div><div class="sz-price">From R999</div></div>
+        <div class="sz-img-wrap"><img src="images/A0.jpeg" alt="A0"></div>
+        <div class="sz-info"><div class="sz-label">A0</div><div class="sz-dims">840 × 1200 mm</div><div class="sz-price">R1 200</div></div>
       </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/Custome%20size.jpeg" alt="2:3 Large"></div>
+        <div class="sz-info"><div class="sz-label">2:3</div><div class="sz-dims">1000 × 1500 mm</div><div class="sz-price">R1 700</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WELCOME BOARD (COREX BOARD)
+============================================================ -->
+<section id="corex">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>Welcome Board <span class="g-text">(Corex Board)</span></h2>
+      <div class="sec-line"></div>
+      <p>Custom printed Corex boards — perfect for events, schools, businesses and personal welcome signage.</p>
+    </div>
+    <div class="hscroll reveal">
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.44%20AM.jpeg" alt="Corex Board A3"></div>
+        <div class="sz-info"><div class="sz-label">A3</div><div class="sz-dims">300 × 400 mm</div><div class="sz-price">R200</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.45%20AM.jpeg" alt="Corex Board A2"></div>
+        <div class="sz-info"><div class="sz-label">A2</div><div class="sz-dims">400 × 600 mm</div><div class="sz-price">R250</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.46%20AM.jpeg" alt="Corex Board A1"></div>
+        <div class="sz-info"><div class="sz-label">A1</div><div class="sz-dims">600 × 900 mm</div><div class="sz-price">R350</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.48%20AM.jpeg" alt="Corex Board A0"></div>
+        <div class="sz-info"><div class="sz-label">A0</div><div class="sz-dims">840 × 1200 mm</div><div class="sz-price">R450</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.49%20AM.jpeg" alt="Corex Board School Back"></div>
+        <div class="sz-info"><div class="sz-label">School Back</div><div class="sz-dims">Custom</div><div class="sz-price">R350</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.50%20AM.jpeg" alt="Corex Board sample"></div>
+        <div class="sz-info"><div class="sz-label">Sample</div><div class="sz-dims">Custom Design</div><div class="sz-price">Get a Quote</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.51%20AM.jpeg" alt="Corex Board sample 2"></div>
+        <div class="sz-info"><div class="sz-label">Sample</div><div class="sz-dims">Custom Design</div><div class="sz-price">Get a Quote</div></div>
+      </div>
+      <div class="gcard sz-card">
+        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.52%20AM.jpeg" alt="Corex Board sample 3"></div>
+        <div class="sz-info"><div class="sz-label">Sample</div><div class="sz-dims">Custom Design</div><div class="sz-price">Get a Quote</div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px" class="reveal">
+      <a href="#contact" class="btn btn-grad">Order a Welcome Board</a>
     </div>
   </div>
 </section>
@@ -1057,25 +1102,30 @@
 <section id="process">
   <div class="container">
     <div class="sec-head reveal">
-      <h2>How It <span class="g-text">Works</span></h2>
+      <h2>How To <span class="g-text">Order</span></h2>
       <div class="sec-line"></div>
-      <p>From photo to doorstep — our simple three-step process makes ordering effortless.</p>
+      <p>Four simple steps from your picture to your finished piece.</p>
     </div>
     <div class="proc-grid">
       <div class="proc-step reveal d1">
         <div class="proc-icon-wrap">📸<div class="proc-num">1</div></div>
-        <h3>Upload Your Photo</h3>
-        <p>Send us your favourite photo via WhatsApp or email. We accept JPG, PNG, HEIC, and most common formats. The higher the resolution, the sharper the print.</p>
+        <h3>Send Us Your Picture</h3>
+        <p>Send us your favourite photo via WhatsApp. We accept JPG, PNG, HEIC and most common formats — the higher the resolution, the sharper the print.</p>
       </div>
       <div class="proc-step reveal d2">
-        <div class="proc-icon-wrap">🖨️<div class="proc-num">2</div></div>
-        <h3>We Print &amp; Frame</h3>
-        <p>Our team prints your image in vivid, high-resolution quality using premium inks, then hand-stretches it over a solid wooden frame — ready to hang.</p>
+        <div class="proc-icon-wrap">💳<div class="proc-num">2</div></div>
+        <h3>Pay 50% Deposit</h3>
+        <p>Make a 50% deposit payment and send us your Proof of Payment immediately to secure your order.</p>
       </div>
       <div class="proc-step reveal d3">
-        <div class="proc-icon-wrap">🚚<div class="proc-num">3</div></div>
-        <h3>Delivered to Your Door</h3>
-        <p>Your canvas is carefully packaged and delivered anywhere in South Africa within 3–5 working days — straight to your door.</p>
+        <div class="proc-icon-wrap">📍<div class="proc-num">3</div></div>
+        <h3>Confirm Details</h3>
+        <p>Confirm your preferred size, location and delivery method. Delivery is charged based on your location. We are based in the Eastrand of Johannesburg, Thokoza.</p>
+      </div>
+      <div class="proc-step reveal d4">
+        <div class="proc-icon-wrap">🖨️<div class="proc-num">4</div></div>
+        <h3>We Start Printing</h3>
+        <p>Once your payment is processed we begin working on your piece. Turnaround time is 2–5 working days.</p>
       </div>
     </div>
   </div>
@@ -1125,7 +1175,7 @@
     <div class="sec-head reveal">
       <h2>Canvas <span class="g-text">Size Guide</span></h2>
       <div class="sec-line"></div>
-      <p>Choose from six standard sizes to perfectly fit your space and budget.</p>
+      <p>Choose from five standard sizes to perfectly fit your space and budget. Custom sizes also available.</p>
     </div>
     <div class="tbl-wrap reveal">
       <table>
@@ -1134,16 +1184,16 @@
             <th>Size</th>
             <th>Dimensions</th>
             <th>Best For</th>
-            <th>Starting Price</th>
+            <th>Price</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><span class="sz-badge">A5</span></td><td>14.8 × 21 cm</td><td>Desk displays, shelves &amp; gifts</td><td><span class="tbl-price">R149</span></td></tr>
-          <tr><td><span class="sz-badge">A4</span></td><td>21 × 29.7 cm</td><td>Bedroom, office &amp; small walls</td><td><span class="tbl-price">R249</span></td></tr>
-          <tr><td><span class="sz-badge">A3</span></td><td>29.7 × 42 cm</td><td>Statement pieces &amp; feature walls</td><td><span class="tbl-price">R349</span></td></tr>
-          <tr><td><span class="sz-badge">A2</span></td><td>42 × 59.4 cm</td><td>Living rooms &amp; hallways</td><td><span class="tbl-price">R499</span></td></tr>
-          <tr><td><span class="sz-badge">A1</span></td><td>59.4 × 84.1 cm</td><td>Large focal pieces &amp; open spaces</td><td><span class="tbl-price">R699</span></td></tr>
-          <tr><td><span class="sz-badge">A0</span></td><td>84.1 × 118.9 cm</td><td>Grand statement walls &amp; galleries</td><td><span class="tbl-price">R999</span></td></tr>
+          <tr><td><span class="sz-badge">A3</span></td><td>300 × 400 mm</td><td>Statement pieces &amp; feature walls</td><td><span class="tbl-price">R400</span></td></tr>
+          <tr><td><span class="sz-badge">A2</span></td><td>400 × 600 mm</td><td>Living rooms &amp; hallways</td><td><span class="tbl-price">R500</span></td></tr>
+          <tr><td><span class="sz-badge">A1</span></td><td>600 × 900 mm</td><td>Large focal pieces &amp; open spaces</td><td><span class="tbl-price">R800</span></td></tr>
+          <tr><td><span class="sz-badge">A0</span></td><td>840 × 1200 mm</td><td>Grand statement walls &amp; galleries</td><td><span class="tbl-price">R1 200</span></td></tr>
+          <tr><td><span class="sz-badge">2:3</span></td><td>1000 × 1500 mm</td><td>Extra-large feature walls &amp; galleries</td><td><span class="tbl-price">R1 700</span></td></tr>
+          <tr><td><span class="sz-badge">Custom</span></td><td>Your dimensions</td><td>Unique spaces &amp; bespoke designs</td><td><span class="tbl-price">Get a Quote</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -1192,13 +1242,13 @@
 <section id="delivery">
   <div class="container">
     <div class="del-inner">
-      <h2 class="reveal"><span class="g-text">We Deliver</span> Nationwide</h2>
-      <p class="reveal">No matter where you are in South Africa — from Cape Town to Limpopo — we'll get your canvas to you safely and on time.</p>
+      <h2 class="reveal"><span class="g-text">Delivery</span> Info</h2>
+      <p class="reveal">We are based in the Eastrand of Johannesburg, Thokoza. Delivery is available at a fee depending on your location.</p>
       <div class="del-cards">
         <div class="del-card reveal d1">
           <span class="del-icon">⚡</span>
-          <h3>Fast Delivery</h3>
-          <p>Orders processed within 48 hours and delivered within 3–5 working days nationwide.</p>
+          <h3>Fast Turnaround</h3>
+          <p>Once your payment is processed we start working on your piece. Turnaround time is 2–5 working days.</p>
         </div>
         <div class="del-card reveal d2">
           <span class="del-icon">📦</span>
@@ -1206,9 +1256,9 @@
           <p>Every canvas is carefully wrapped and protected to arrive at your door in perfect condition.</p>
         </div>
         <div class="del-card reveal d3">
-          <span class="del-icon">🇿🇦</span>
-          <h3>Nationwide</h3>
-          <p>We ship to all major cities and towns right across South Africa.</p>
+          <span class="del-icon">📍</span>
+          <h3>Based in Thokoza</h3>
+          <p>Eastrand, Johannesburg. Delivery fee applies and depends on your location. Collection also available.</p>
         </div>
       </div>
     </div>
@@ -1241,6 +1291,7 @@
             <li><a href="#hero">Home</a></li>
             <li><a href="#popular">Products</a></li>
             <li><a href="#combos">Combos</a></li>
+            <li><a href="#corex">Welcome Boards</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#sizes-table">Size Guide</a></li>
             <li><a href="#vouchers">Gift Vouchers</a></li>
