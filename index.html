@@ -611,6 +611,72 @@
     .v-features li .vi { font-size: 1.1rem; }
 
     /* ============================================================
+       WELCOME BOARD SLIDER
+    ============================================================ */
+    .wb-slider-wrap { position: relative; max-width: 400px; margin: 0 auto 40px; }
+    .wb-track {
+      position: relative; height: 520px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .wb-slide {
+      position: absolute; width: 100%; height: 100%;
+      border-radius: 20px; overflow: hidden;
+      transition: transform .5s cubic-bezier(.4,0,.2,1), opacity .5s, box-shadow .5s;
+      cursor: pointer;
+    }
+    .wb-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wb-slide.s-active {
+      transform: translateX(0) scale(1) rotate(0deg);
+      opacity: 1; z-index: 3;
+      box-shadow: 0 24px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(155,48,255,.25);
+    }
+    .wb-slide.s-prev {
+      transform: translateX(-52px) scale(0.87) rotate(-5deg);
+      opacity: .45; z-index: 2; pointer-events: none;
+    }
+    .wb-slide.s-next {
+      transform: translateX(52px) scale(0.87) rotate(5deg);
+      opacity: .45; z-index: 2; pointer-events: none;
+    }
+    .wb-slide.s-hidden { transform: scale(0.75); opacity: 0; z-index: 1; pointer-events: none; }
+
+    .wb-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--card); border: 1.5px solid var(--border);
+      color: var(--text); font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 10; transition: all .25s;
+      box-shadow: 0 4px 16px rgba(0,0,0,.3);
+    }
+    .wb-nav:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 16px rgba(0,229,255,.3); }
+    .wb-prev { left: -20px; }
+    .wb-next { right: -20px; }
+
+    .wb-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+    .wb-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border); border: none; cursor: pointer;
+      transition: background .3s, transform .3s; padding: 0;
+    }
+    .wb-dot.active { background: var(--grad); transform: scale(1.3); }
+
+    .wb-pricing {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 10px; margin-top: 28px;
+    }
+    .wb-price-chip {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 50px; padding: 7px 18px;
+      font-size: .82rem; display: flex; gap: 8px; align-items: center;
+    }
+    .wb-price-chip .wbp-size { font-family: 'Orbitron', sans-serif; font-weight: 700; color: var(--cyan); font-size: .75rem; }
+    .wb-price-chip .wbp-price { color: var(--text); font-weight: 600; }
+
+    /* Kiddie Bags */
+    #kiddie-bags { background: var(--bg2); }
+
+    /* ============================================================
        10. DELIVERY
     ============================================================ */
     #delivery { background: var(--bg); padding: 88px 0; position: relative; overflow: hidden; }
@@ -764,8 +830,9 @@
   <a href="#combos"      onclick="mobClose()">Combos</a>
   <a href="#five-piece"  onclick="mobClose()">5 Piece</a>
   <a href="#ind-sizes"   onclick="mobClose()">Sizes</a>
-  <a href="#corex"      onclick="mobClose()">Welcome Boards</a>
-  <a href="#vouchers"   onclick="mobClose()">Gift Vouchers</a>
+  <a href="#corex"       onclick="mobClose()">Welcome Boards</a>
+  <a href="#kiddie-bags" onclick="mobClose()">Bags</a>
+  <a href="#vouchers"    onclick="mobClose()">Gift</a>
   <a href="#contact"    onclick="mobClose()">Contact</a>
   <div class="mob-theme-row">
     <span>Theme</span>
@@ -804,7 +871,8 @@
       <li><a href="#five-piece">5 Piece</a></li>
       <li><a href="#ind-sizes">Sizes</a></li>
       <li><a href="#corex">Welcome Boards</a></li>
-      <li><a href="#vouchers">Gift Vouchers</a></li>
+      <li><a href="#kiddie-bags">Bags</a></li>
+      <li><a href="#vouchers">Gift</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
@@ -1106,44 +1174,85 @@
     <div class="sec-head reveal">
       <h2>Welcome Board <span class="g-text">(Corex Board)</span></h2>
       <div class="sec-line"></div>
-      <p>Custom printed Corex boards — perfect for events, schools, businesses and personal welcome signage.</p>
+      <p>Custom printed Corex boards — perfect for birthdays, bridal showers, graduations, and any special event.</p>
+    </div>
+
+    <div class="wb-slider-wrap reveal">
+      <div class="wb-track" id="wbTrack">
+        <div class="wb-slide s-active"><img src="images/welcome%20board.jpeg"    alt="Welcome Board"></div>
+        <div class="wb-slide s-next"  ><img src="images/welcome%20board-1.jpeg"  alt="Welcome Board"></div>
+        <div class="wb-slide s-hidden"><img src="images/welcome-board-3.jpeg"    alt="Welcome Board"></div>
+        <div class="wb-slide s-hidden"><img src="images/welcome%20board-4.jpeg"  alt="Welcome Board"></div>
+        <div class="wb-slide s-hidden"><img src="images/welcome%20board-6.jpeg"  alt="Welcome Board"></div>
+        <div class="wb-slide s-hidden"><img src="images/welcome%20board-7.jpeg"  alt="Welcome Board"></div>
+        <div class="wb-slide s-hidden"><img src="images/welcome%20board-8.jpeg"  alt="Welcome Board"></div>
+        <div class="wb-slide s-hidden"><img src="images/welcome%20board-9.jpeg"  alt="Welcome Board"></div>
+        <div class="wb-slide s-hidden"><img src="images/welcome-board-10.jpeg"   alt="Welcome Board"></div>
+      </div>
+      <button class="wb-nav wb-prev" onclick="wbMove(-1)">&#8592;</button>
+      <button class="wb-nav wb-next" onclick="wbMove(1)">&#8594;</button>
+      <div class="wb-dots" id="wbDots"></div>
+    </div>
+
+    <div class="wb-pricing reveal">
+      <div class="wb-price-chip"><span class="wbp-size">A3</span><span class="wbp-price">R200</span></div>
+      <div class="wb-price-chip"><span class="wbp-size">A2</span><span class="wbp-price">R250</span></div>
+      <div class="wb-price-chip"><span class="wbp-size">A1</span><span class="wbp-price">R350</span></div>
+      <div class="wb-price-chip"><span class="wbp-size">A0</span><span class="wbp-price">R450</span></div>
+    </div>
+
+    <div style="text-align:center;margin-top:28px" class="reveal">
+      <a href="#contact" class="btn btn-grad">Order a Welcome Board</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     KIDDIE BAGS
+============================================================ -->
+<section id="kiddie-bags">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>Kiddie <span class="g-text">Bags</span></h2>
+      <div class="sec-line"></div>
+      <p>Custom printed school backpacks featuring your child's favourite characters and photos — uniquely theirs.</p>
     </div>
     <div class="hscroll reveal">
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.44%20AM.jpeg" alt="Corex Board A3"></div>
-        <div class="sz-info"><div class="sz-label">A3</div><div class="sz-dims">300 × 400 mm</div><div class="sz-price">R200</div></div>
+        <div class="sz-img-wrap"><img src="images/school%20backs.jpeg"   alt="Kiddie Bag"></div>
+        <div class="sz-info"><div class="sz-label">Kiddie Bag</div><div class="sz-dims">Custom Printed</div><div class="sz-price">R350</div></div>
       </div>
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.45%20AM.jpeg" alt="Corex Board A2"></div>
-        <div class="sz-info"><div class="sz-label">A2</div><div class="sz-dims">400 × 600 mm</div><div class="sz-price">R250</div></div>
+        <div class="sz-img-wrap"><img src="images/school%20backs-1.jpeg" alt="Kiddie Bag"></div>
+        <div class="sz-info"><div class="sz-label">Kiddie Bag</div><div class="sz-dims">Custom Printed</div><div class="sz-price">R350</div></div>
       </div>
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.46%20AM.jpeg" alt="Corex Board A1"></div>
-        <div class="sz-info"><div class="sz-label">A1</div><div class="sz-dims">600 × 900 mm</div><div class="sz-price">R350</div></div>
+        <div class="sz-img-wrap"><img src="images/school%20backs-2.jpeg" alt="Kiddie Bag"></div>
+        <div class="sz-info"><div class="sz-label">Kiddie Bag</div><div class="sz-dims">Custom Printed</div><div class="sz-price">R350</div></div>
       </div>
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.48%20AM.jpeg" alt="Corex Board A0"></div>
-        <div class="sz-info"><div class="sz-label">A0</div><div class="sz-dims">840 × 1200 mm</div><div class="sz-price">R450</div></div>
+        <div class="sz-img-wrap"><img src="images/school%20back-4.jpeg"  alt="Kiddie Bag"></div>
+        <div class="sz-info"><div class="sz-label">Kiddie Bag</div><div class="sz-dims">Custom Printed</div><div class="sz-price">R350</div></div>
       </div>
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.49%20AM.jpeg" alt="Corex Board School Back"></div>
-        <div class="sz-info"><div class="sz-label">School Back</div><div class="sz-dims">Custom</div><div class="sz-price">R350</div></div>
+        <div class="sz-img-wrap"><img src="images/school%20back-7.jpeg"  alt="Kiddie Bag"></div>
+        <div class="sz-info"><div class="sz-label">Kiddie Bag</div><div class="sz-dims">Custom Printed</div><div class="sz-price">R350</div></div>
       </div>
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.50%20AM.jpeg" alt="Corex Board sample"></div>
-        <div class="sz-info"><div class="sz-label">Sample</div><div class="sz-dims">Custom Design</div><div class="sz-price">Get a Quote</div></div>
+        <div class="sz-img-wrap"><img src="images/school%20back-8.jpeg"  alt="Kiddie Bag"></div>
+        <div class="sz-info"><div class="sz-label">Kiddie Bag</div><div class="sz-dims">Custom Printed</div><div class="sz-price">R350</div></div>
       </div>
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.51%20AM.jpeg" alt="Corex Board sample 2"></div>
-        <div class="sz-info"><div class="sz-label">Sample</div><div class="sz-dims">Custom Design</div><div class="sz-price">Get a Quote</div></div>
+        <div class="sz-img-wrap"><img src="images/school%20backs-9.jpeg" alt="Kiddie Bag"></div>
+        <div class="sz-info"><div class="sz-label">Kiddie Bag</div><div class="sz-dims">Custom Printed</div><div class="sz-price">R350</div></div>
       </div>
       <div class="gcard sz-card">
-        <div class="sz-img-wrap"><img src="images/WhatsApp%20Image%202026-03-16%20at%209.33.52%20AM.jpeg" alt="Corex Board sample 3"></div>
-        <div class="sz-info"><div class="sz-label">Sample</div><div class="sz-dims">Custom Design</div><div class="sz-price">Get a Quote</div></div>
+        <div class="sz-img-wrap"><img src="images/school%20backs-10.jpeg" alt="Kiddie Bag"></div>
+        <div class="sz-info"><div class="sz-label">Kiddie Bag</div><div class="sz-dims">Custom Printed</div><div class="sz-price">R350</div></div>
       </div>
     </div>
     <div style="text-align:center;margin-top:32px" class="reveal">
-      <a href="#contact" class="btn btn-grad">Order a Welcome Board</a>
+      <a href="#contact" class="btn btn-grad">Order a Kiddie Bag</a>
     </div>
   </div>
 </section>
@@ -1344,9 +1453,10 @@
             <li><a href="#popular">Products</a></li>
             <li><a href="#combos">Combos</a></li>
             <li><a href="#corex">Welcome Boards</a></li>
+            <li><a href="#kiddie-bags">Bags</a></li>
             <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#sizes-table">Size Guide</a></li>
-            <li><a href="#vouchers">Gift Vouchers</a></li>
+            <li><a href="#sizes-table">Size</a></li>
+            <li><a href="#vouchers">Gift</a></li>
           </ul>
         </div>
 
@@ -1420,6 +1530,46 @@
   document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => io.observe(el));
 
   /* ── Lightbox ── */
+  /* ── Welcome Board Slider ── */
+  (function() {
+    var slides = Array.from(document.querySelectorAll('#wbTrack .wb-slide'));
+    var dotsEl = document.getElementById('wbDots');
+    var cur    = 0;
+    var n      = slides.length;
+
+    // build dots
+    slides.forEach(function(_, i) {
+      var d = document.createElement('button');
+      d.className = 'wb-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Slide ' + (i + 1));
+      d.onclick = function() { wbGoTo(i); };
+      dotsEl.appendChild(d);
+    });
+
+    function wbGoTo(idx) {
+      var prev = (idx - 1 + n) % n;
+      var next = (idx + 1) % n;
+      slides.forEach(function(s, i) {
+        s.className = 'wb-slide ' + (i === idx ? 's-active' : i === prev ? 's-prev' : i === next ? 's-next' : 's-hidden');
+      });
+      dotsEl.querySelectorAll('.wb-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === idx);
+      });
+      cur = idx;
+    }
+
+    window.wbMove = function(dir) { wbGoTo((cur + dir + n) % n); };
+
+    // swipe support
+    var tx = 0;
+    var track = document.getElementById('wbTrack');
+    track.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   function(e) {
+      var dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) wbMove(dx < 0 ? 1 : -1);
+    }, { passive: true });
+  })();
+
   function lbOpen(src) {
     document.getElementById('lb-img').src = src;
     document.getElementById('lb').classList.add('open');
