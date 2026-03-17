@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>T.M Global Solutions | Premium Canvas Printing South Africa</title>
-
+  <link rel="icon" type="image/svg+xml" href="icons/logo.svg">
   <!-- Prevent flash of wrong theme -->
   <script>
     (function(){
@@ -519,19 +519,38 @@
        7. GALLERY
     ============================================================ */
     #gallery { background: var(--bg2); }
-    .gallery-masonry { columns: 3; column-gap: 14px; }
+    .gallery-masonry { columns: 3; column-gap: 16px; }
     .gal-item {
-      break-inside: avoid; margin-bottom: 14px;
-      border-radius: 16px; overflow: hidden;
+      break-inside: avoid; margin-bottom: 16px;
+      border-radius: 18px; overflow: hidden;
       cursor: pointer; position: relative;
+      box-shadow: 0 4px 24px rgba(0,0,0,.18);
+      transition: transform .35s ease, box-shadow .35s ease;
     }
-    .gal-item img { width: 100%; display: block; transition: transform .5s ease; }
-    .gal-item::after {
-      content: ''; position: absolute; inset: 0;
-      background: var(--grad); opacity: 0; transition: opacity .3s; border-radius: 16px;
+    .gal-item img { width: 100%; display: block; transition: transform .55s ease; }
+    .gal-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.1) 50%, transparent 100%);
+      opacity: 0; transition: opacity .35s ease;
+      display: flex; align-items: flex-end; padding: 18px;
     }
-    .gal-item:hover img { transform: scale(1.05); }
-    .gal-item:hover::after { opacity: .12; }
+    .gal-zoom {
+      margin-left: auto;
+      width: 42px; height: 42px;
+      background: rgba(255,255,255,.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transform: translateY(8px) scale(.85);
+      transition: transform .35s ease;
+    }
+    .gal-zoom svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .gal-item:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(155,48,255,.28); }
+    .gal-item:hover img { transform: scale(1.08); }
+    .gal-item:hover .gal-overlay { opacity: 1; }
+    .gal-item:hover .gal-zoom { transform: translateY(0) scale(1); }
 
     /* ============================================================
        8. SIZES TABLE
@@ -1313,27 +1332,77 @@
       <p>Real canvases for real people — browse our recent prints and get inspired.</p>
     </div>
     <div class="gallery-masonry reveal">
+
+      <div class="gal-item" onclick="lbOpen('images/latest-work-1.jpeg')">
+        <img src="images/latest-work-1.jpeg" alt="Latest canvas print 1">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="gal-item" onclick="lbOpen('images/latest.jpeg')">
+        <img src="images/latest.jpeg" alt="Latest canvas print">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="gal-item" onclick="lbOpen('images/latest-work.jpeg')">
+        <img src="images/latest-work.jpeg" alt="Latest work canvas">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="gal-item" onclick="lbOpen('images/latest-work-4.jpeg')">
+        <img src="images/latest-work-4.jpeg" alt="Latest work canvas 4">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="gal-item" onclick="lbOpen('images/latest-work-5.jpeg')">
+        <img src="images/latest-work-5.jpeg" alt="Latest work canvas 5">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="gal-item" onclick="lbOpen('images/latest-work-6.jpeg')">
+        <img src="images/latest-work-6.jpeg" alt="Latest work canvas 6">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="gal-item" onclick="lbOpen('images/latest-work%20(2).jpeg')">
+        <img src="images/latest-work%20(2).jpeg" alt="Latest work canvas 2">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
       <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM.jpeg')">
         <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM.jpeg" alt="Custom concept canvas">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
+
       <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(2).jpeg')">
         <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(2).jpeg" alt="Family canvas print">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
+
       <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(3).jpeg')">
         <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(3).jpeg" alt="Black and white family canvas">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
+
       <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM%20(1).jpeg')">
         <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.35%20PM%20(1).jpeg" alt="Lifestyle portrait canvas">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
+
       <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM.jpeg')">
         <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM.jpeg" alt="Professional portrait canvas">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
+
       <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(1).jpeg')">
         <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.36%20PM%20(1).jpeg" alt="Beach portrait canvas">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
+
       <div class="gal-item" onclick="lbOpen('images/WhatsApp%20Image%202026-03-15%20at%209.16.37%20PM.jpeg')">
         <img src="images/WhatsApp%20Image%202026-03-15%20at%209.16.37%20PM.jpeg" alt="Couple portrait canvas">
+        <div class="gal-overlay"><div class="gal-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
+
     </div>
   </div>
 </section>
